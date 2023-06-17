@@ -8,8 +8,7 @@ import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
 import CountrySelect from "../Components/CountrySelect";
-// import { addToCart } from "../Redux/actions/cartAction";
-// import { useDispatch } from "react-redux";
+import { CartProvider, useCart } from "react-use-cart";
 
 const Animate = (e) => {
   e.preventDefault();
@@ -59,18 +58,9 @@ const Animate = (e) => {
   }, 1000);
 };
 
-const addtoCart = (item) => {
-  if (!localStorage.getItem("cart")) {
-    localStorage.setItem("cart", "[]");
-  }
-  let products = JSON.parse(localStorage.getItem("products"));
-  let cart = JSON.parse(localStorage.getItem("cart"));
-};
-
 const ProductsAnim = () => {
   const [cartOpen, setcartOpen] = useState(false);
-  // const [products, setProducts] = useState([]);
-  // const dispatch = useDispatch();
+  const { addItem, totalUniqueItems } = useCart();
 
   const showCart = () => {
     setcartOpen((current) => !current);
@@ -113,8 +103,8 @@ const ProductsAnim = () => {
           <div className="card" key={i}>
             <div className="card-content ">
               <img
-                src={`https://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
-                alt=""
+                src={`http://localhost:8000/${item.thumbnail}`}
+                alt="Not Found"
                 className="card-img"
               />
               <h1 className="card-title text-black font-semibold">
@@ -125,7 +115,7 @@ const ProductsAnim = () => {
                 <span className="rating-value text-black">4.5</span>
                 <span className="star">&#9733;</span>
               </div> */}
-                <p className="card-price text-black">${item.price}</p>
+                <p className="card-price text-black">£ {item.price}</p>
               </div>
               <div className="flex flex-row card-footer gap-2">
                 <button className="text-lg hover:shadow-lg shadow-gray_light font-semibold bg-dark_gray rounded-2xl p-2">
@@ -133,9 +123,19 @@ const ProductsAnim = () => {
                 </button>
                 <button
                   onClick={(e) => {
+                    const product = [
+                      {
+                        id: item._id,
+                        name: item.name,
+                        image: item.thumbnail,
+                        price: item.price,
+                        city: item.city,
+                        quantity: 1,
+                      },
+                    ];
+                    addItem(product[0]);
                     Animate(e);
-
-                    addtoCart(JSON.stringify(item));
+                    console.log(product);
                   }}
                   className="bg-gray text-lg shadow-lg text-white font-semibold rounded-2xl p-2"
                 >
@@ -154,14 +154,14 @@ const ProductsAnim = () => {
               className="card-img"
             />
             <h1 className="card-title p-2 text-black font-semibold">
-              HP Spectre x360 15 HP Spectre x360 15 HP Spectre x360 15
+              Cup Cakes
             </h1>
             <div className="card-body">
               {/* <div className="card-star">
                 <span className="rating-value text-black">4.5</span>
                 <span className="star">&#9733;</span>
               </div> */}
-              <p className="card-price text-black">$650.99</p>
+              <p className="card-price text-black">£ 15.99</p>
             </div>
             <div className="flex flex-row card-footer gap-2">
               <button className="text-lg font-semibold bg-dark_gray rounded-2xl p-2">
@@ -184,14 +184,14 @@ const ProductsAnim = () => {
               className="card-img"
             />
             <h1 className="card-title p-2 text-black font-semibold">
-              HP Spectre x360 15 HP Spectre x360 15 HP Spectre x360 15
+              Special Doughnut
             </h1>
             <div className="card-body">
               {/* <div className="card-star">
                 <span className="rating-value text-black">4.5</span>
                 <span className="star">&#9733;</span>
               </div> */}
-              <p className="card-price text-black">$650.99</p>
+              <p className="card-price text-black">£ 14.9</p>
             </div>
             <div className="flex flex-row card-footer gap-2">
               <button className="text-lg font-semibold bg-dark_gray rounded-2xl p-2">
@@ -214,14 +214,14 @@ const ProductsAnim = () => {
               className="card-img"
             />
             <h1 className="card-title p-2 text-black font-semibold">
-              HP Spectre x360 15 HP Spectre x360 15 HP Spectre x360 15
+              Fruit Cakes and chocolates
             </h1>
             <div className="card-body">
               {/* <div className="card-star">
                 <span className="rating-value text-black">4.5</span>
                 <span className="star">&#9733;</span>
               </div> */}
-              <p className="card-price text-black">$650.99</p>
+              <p className="card-price text-black">£ 17.0</p>
             </div>
             <div className="flex flex-row card-footer gap-2">
               <button className="text-lg font-semibold bg-dark_gray rounded-2xl p-2">
@@ -238,8 +238,11 @@ const ProductsAnim = () => {
         </div>
       </section>
       <button onClick={showCart}>
-        <div className="fixed top-1/2 md:top-1/2 right-0 z-50 bg-dark_gray">
-          <div className="shopping-cart" data-product-count="0">
+        <div className="fixed md:top-1/4 bottom-8 right-0 z-50 bg-dark_gray">
+          <div
+            className="shopping-cart"
+            data-product-count={`${totalUniqueItems}`}
+          >
             <span className="cart-icon">&#128722;</span>
           </div>
         </div>

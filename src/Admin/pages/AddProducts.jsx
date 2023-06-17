@@ -61,9 +61,9 @@ const AddProducts = () => {
 
   return (
     <div className="mt-12">
-      <div className="my-4 max-w-screen-md border px-4 shadow-xl sm:mx-4 sm:rounded-xl sm:px-4 sm:py-4 md:mx-auto">
-        <div className="flex flex-col border-b py-4 sm:flex-row sm:items-start">
-          <div className="shrink-0 mr-auto sm:py-3">
+      <div className="my-4 max-w-screen-md border-spacing-0 px-4 shadow-xl sm:mx-4 sm:rounded-xl sm:px-4 sm:py-4 md:mx-auto">
+        <div className="flex flex-col py-4 sm:flex-row sm:items-start ">
+          <div className="shrink-0 mr-auto sm:py-3 ">
             <p className="font-medium">Product Details</p>
             <p className="text-sm text-gray-600">Enter Product details</p>
           </div>
@@ -85,25 +85,25 @@ const AddProducts = () => {
           </div>
         </div>
         <form onSubmit={handleaddProduct}>
-          <div className="flex flex-col gap-4 border-b py-4 sm:flex-row">
+          <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="shrink-0 w-32 font-medium">Product Name</p>
 
             <input
               placeholder="Product Name"
-              className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
+              className="w-full rounded-md  bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
               onChange={(e) => {
                 setProduct_name(e.target.value);
               }}
             />
           </div>
 
-          <div className="flex flex-col gap-4 border-b py-4 sm:flex-row">
+          <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className=" w-32 font-medium">Cities</p>
 
             <select
               name="cities"
               id="cities"
-              className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
+              className="w-full rounded-md bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
               onChange={(e) => {
                 setAvailable_city(e.target.value);
               }}
@@ -143,12 +143,12 @@ const AddProducts = () => {
             />
           </div> */}
 
-          <div className="flex flex-col gap-4 border-b py-4 sm:flex-row">
+          <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="shrink-0 w-32 font-medium">Orignal Price</p>
             <input
               type="number"
               placeholder="Orignal Price"
-              className="mb-2 w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 sm:mr-4 sm:mb-0 focus:ring-1"
+              className="mb-2 w-full rounded-md bg-white px-2 py-2 outline-none ring-blue-600 sm:mr-4 sm:mb-0 focus:ring-1"
               onChange={(e) => {
                 setProduct_price(e.target.value);
               }}
@@ -156,10 +156,10 @@ const AddProducts = () => {
 
             <input
               placeholder="Discount"
-              className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
+              className="w-full rounded-md bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
             />
           </div>
-          <div className="flex flex-col gap-4 border-b py-4 sm:flex-row">
+          <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="shrink-0 w-32 font-medium">Thumbnail Image</p>
             <input
               onChange={(e) => {
@@ -167,7 +167,7 @@ const AddProducts = () => {
               }}
               type="file"
               id="product-thumbnail"
-              className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
+              className="w-full rounded-md  bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
             />
           </div>
           {/* <div className="flex flex-col gap-4 py-4  lg:flex-row">

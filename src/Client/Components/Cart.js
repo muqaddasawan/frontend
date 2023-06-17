@@ -2,62 +2,18 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
+import { useCart } from "react-use-cart";
 
 const Cart = ({ showCart }) => {
   const [open, setOpen] = useState(true);
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    cartTotal,
+    removeItem,
+  } = useCart();
 
   function closeCart() {
     showCart();
@@ -110,87 +66,105 @@ const Cart = ({ showCart }) => {
                         </div>
                       </div>
 
-                      <div className="mt-8">
-                        <div className="flow-root">
-                          <ul
-                            role="list"
-                            className="-my-6 divide-y divide-gray-200"
-                          >
-                            {products.map((product) => (
-                              <li key={product.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
-                                    className="h-full w-full object-cover object-center"
-                                  />
-                                </div>
-
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        <a href={product.href}>
-                                          {product.name}
-                                        </a>
-                                      </h3>
-                                      <p className="ml-4">{product.price}</p>
-                                    </div>
-                                    <p className="mt-1 text-sm text-gray-500">
-                                      {product.color}
-                                    </p>
-                                  </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">
-                                      Qty {product.quantity}
-                                    </p>
-
-                                    <div className="flex">
-                                      <button
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
-                                        Remove
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
+                      {isEmpty ? (
+                        <div className="mt-5">
+                          <hr />
+                          <p className="text-center mt-5 font-semibold">
+                            Your shopping cart is is empty, Select box for
+                            shopping
+                          </p>
                         </div>
-                      </div>
-                    </div>
+                      ) : (
+                        <div>
+                          <div className="mt-3">
+                            <div className="flow-root">
+                              <ul
+                                role="list"
+                                className="-my-6 divide-y divide-gray-200"
+                              >
+                                {items.map((item) => (
+                                  <li key={item.id} className="flex py-6 mb-3">
+                                    <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                      <img
+                                        src={`http://localhost:8000/${item.image}`}
+                                        alt={item.imageAlt}
+                                        className="h-full w-full object-cover object-center"
+                                      />
+                                    </div>
 
-                    <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                      <div className="flex justify-between text-base font-medium text-gray-900">
-                        <p>Subtotal</p>
-                        <p>$262.00</p>
-                      </div>
-                      <p className="mt-0.5 text-sm text-gray-500">
-                        Shipping and taxes calculated at checkout.
-                      </p>
-                      <div className="mt-6">
-                        <Link
-                          to="/checkout"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-dark_gray px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                        >
-                          <button onClick={() => closeCart()}> Checkout</button>
-                        </Link>
-                      </div>
-                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                        <p>
-                          or
-                          <button
-                            type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => closeCart()}
-                          >
-                            Continue Shopping
-                            <span aria-hidden="true"> &rarr;</span>
-                          </button>
-                        </p>
-                      </div>
+                                    <div className="ml-4 flex flex-1 flex-col">
+                                      <div>
+                                        <div className="flex justify-between text-base font-medium text-gray-900">
+                                          <h3>
+                                            <a href={item.href}>{item.name}</a>
+                                          </h3>
+                                          <p className="ml-4">£ {item.price}</p>
+                                        </div>
+                                      </div>
+                                      <div className="flex flex-1 items-end justify-between text-sm">
+                                        <button
+                                          onClick={() =>
+                                            updateItemQuantity(
+                                              item.id,
+                                              item.quantity - 1
+                                            )
+                                          }
+                                        >
+                                          -
+                                        </button>
+                                        <p className="text-gray-500">
+                                          Qty {item.quantity}
+                                        </p>
+                                        <button
+                                          onClick={() =>
+                                            updateItemQuantity(
+                                              item.id,
+                                              item.quantity + 1
+                                            )
+                                          }
+                                        >
+                                          +
+                                        </button>
+                                        <div className="flex">
+                                          <button
+                                            type="button"
+                                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                                            onClick={() => {
+                                              removeItem(item.id);
+                                            }}
+                                          >
+                                            Remove
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+                            <div className="flex justify-between text-base font-medium text-gray-900">
+                              <p>Subtotal</p>
+                              <p>£ {cartTotal}</p>
+                            </div>
+                            <p className="mt-0.5 text-sm text-gray-500">
+                              Total products price
+                            </p>
+                            <div className="mt-6">
+                              <Link
+                                to="/checkout"
+                                className="flex items-center justify-center rounded-md border border-transparent bg-dark_gray px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray_light"
+                              >
+                                <button onClick={() => closeCart()}>
+                                  {" "}
+                                  Checkout
+                                </button>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Dialog.Panel>

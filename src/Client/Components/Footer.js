@@ -28,9 +28,6 @@ const Footer = () => {
           <Link className="hover:text-gray-900" to="/faq">
             FAQ
           </Link>
-          <Link className="hover:text-gray-900" to="/cart">
-            Cart
-          </Link>
           <Link className="hover:text-gray-900" to="/checkout">
             CheckOut
           </Link>

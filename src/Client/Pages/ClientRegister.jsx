@@ -15,6 +15,7 @@ const ClientRegister = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    console.log(input);
     try {
       const response = await axios.post("api/auth/client/register", input);
       alert(response.data.message);
