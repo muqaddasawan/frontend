@@ -113,7 +113,7 @@ const ProductsAnim = () => {
           <div className="card" key={i}>
             <div className="card-content ">
               <img
-                src={`http://localhost:9000/${item.thumbnail}`}
+                src={`https://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
                 alt=""
                 className="card-img"
               />
