@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("clienttoken");
   let message = "";
   const [input, setinput] = useState({
     newPassword: "",

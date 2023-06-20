@@ -11,7 +11,7 @@ const ProfileDropDown = (props) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("clienttoken");
     localStorage.removeItem("clientname");
     navigate("/user/login");
   };

@@ -108,11 +108,16 @@ const AddProducts = () => {
                 setAvailable_city(e.target.value);
               }}
             >
-              <option value="All Country">All Country</option>
-              <option value="London">London</option>
-              <option value="Birmingham">Birmingham</option>
-              <option value="Scotland">Scotland</option>
-              <option value="Liverpool">Liverpool</option>
+              <option>Select Your City</option>
+              <option value="Luton">Luton</option>
+              <option value="Dunstable">Dunstable</option>
+              <option value="Hitchin">Hitchin</option>
+              <option value="Hemel Hempstead">Hemel Hempstead</option>
+              <option value="Watford">Watford</option>
+              <option value="St Albans">St Albans</option>
+              <option value="Bedford">Bedford</option>
+              <option value="Milton Keynes">Milton Keynes</option>
+              <option value="Other City">Other City</option>
             </select>
 
             {/* <div className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1">

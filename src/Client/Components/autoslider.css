@@ -1,6 +1,10 @@
 .fade-anim img {
   animation: fadeAnim 0.9s ease-out;
 }
+
+.fade-anim {
+  animation: fadeAnim 0.9s ease-out;
+}
 @keyframes fadeAnim {
   from {
     opacity: 0;

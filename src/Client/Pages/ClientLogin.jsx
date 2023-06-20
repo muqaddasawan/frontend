@@ -19,8 +19,9 @@ const ClientLogin = () => {
       console.log(response.data);
       if (response.status === 200) {
         message = response.data.message;
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("clienttoken", response.data.token);
         localStorage.setItem("clientname", response.data.clientname);
+        localStorage.setItem("clientId", response.data.clientID);
         navigate("/");
       }
     } catch (error) {

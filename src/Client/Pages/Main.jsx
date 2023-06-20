@@ -10,8 +10,9 @@ import Checkout from "../Pages/Checkout";
 import Footer from "../Components/Footer";
 import Newsletter from "../Components/Newsletter";
 import NavbarMenu from "../Components/NavbarMenu";
-import CartIcon from "../Components/CartIcon";
+import CountryModal from "../Components/CountryModal";
 import { CartProvider } from "react-use-cart";
+import ProtectedclientRoutes from "../../Services/protectedRoutes";
 
 const Main = () => {
   return (
@@ -26,11 +27,13 @@ const Main = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/checkout" element={<Checkout />} />
+          {/* <Route path="/checkout" element={<Checkout />} /> */}
           <Route path="/faq" element={<Faq />} />
           <Route path="/notfound" element={<NotFound />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="" element={<ProtectedclientRoutes />}>
+            <Route path="/checkout" element={<Checkout />} />
+          </Route>
         </Routes>
         <Newsletter />
         <Footer />
