@@ -6,7 +6,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState, useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Cart, Chat, Notification, UserProfile } from ".";
+import { Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 import DropDownAdminProfile from "./DropDownAdminProfile";
 
@@ -84,13 +84,13 @@ const Navbar = () => {
           color="blue"
           icon={<BsChatLeft />}
         /> */}
-        <NavButton
+        {/* <NavButton
           title="Notifications"
           dotColor="#03C9D7"
           customFunc={() => handleClick("notification")}
           color="blue"
           icon={<RiNotification3Line />}
-        />
+        /> */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <div className="text-sm font-semibold leading-6 text-gray-900">
             {adminname ? (
@@ -105,9 +105,9 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        {isClicked.cart && <Cart />}
-        {isClicked.chat && <Chat />}
-        {isClicked.notification && <Notification />}
+
+        {/* {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />} */}
         {isClicked.userProfile && <UserProfile />}
       </div>
     </div>

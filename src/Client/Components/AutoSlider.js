@@ -55,7 +55,7 @@ export default function AutoSlider() {
   const startSlider = () => {
     slideInterval = setInterval(() => {
       handleOnNextClick();
-    }, 10000);
+    }, 7000);
   };
 
   const pauseSlider = () => {

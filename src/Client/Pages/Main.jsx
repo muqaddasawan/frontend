@@ -11,6 +11,10 @@ import Footer from "../Components/Footer";
 import Newsletter from "../Components/Newsletter";
 import NavbarMenu from "../Components/NavbarMenu";
 import CountryModal from "../Components/CountryModal";
+import Profile from "./Profile";
+import UserOrders from "../Components/UserOrders";
+import UserOrderDetails from "./UserOrderDetails";
+import UserShipping from "../Components/UserShipping";
 import { CartProvider } from "react-use-cart";
 import ProtectedclientRoutes from "../../Services/protectedRoutes";
 
@@ -33,6 +37,13 @@ const Main = () => {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="" element={<ProtectedclientRoutes />}>
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/Profile/userorders" element={<UserOrders />} />
+            <Route path="/profile/shipping" element={<UserShipping />} />
+            <Route
+              path="/profile/order-details/:orderId"
+              element={<UserOrderDetails />}
+            />
           </Route>
         </Routes>
         <Newsletter />

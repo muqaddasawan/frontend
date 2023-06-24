@@ -2,8 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "../../Services/axiosInterceptor";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AllProducts = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -15,16 +17,32 @@ const AllProducts = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [products]);
 
-  const deleteProduct = (id) => {
-    // alert(id);
-    console.log(id);
+  const deleteProduct = async (id) => {
+    try {
+      let answer = window.prompt(
+        "Are You sure you want to delete this product? type = yes"
+      );
+      if (answer && answer === "yes") {
+        const { response } = await axios.delete(
+          `api/products/delete-product/${id}`
+        );
+        alert("Prodcut Deleted Successfully");
+        navigate("/admin/add-products");
+      } else {
+        alert("Product not deleted");
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
   };
 
   return (
     <div className="">
-      <div className="mx-auto mt-8 max-w-screen-lg px-2 overflow-hidden">
+      <div className="mx-auto mt-12 max-w-screen-lg px-2 overflow-hidden">
         <div className="sm:flex sm:items-center sm:justify-between flex-col sm:flex-row">
           <p className="flex-1 text-xl font-bold text-center  text-gray-900">
             All Products
@@ -67,7 +85,7 @@ const AllProducts = () => {
                     {item.name}
                     <img
                       className="h-20 w-20"
-                      src={`http://localhost:9000/${item.thumbnail}`}
+                      src={`http://localhost:8000/${item.thumbnail}`}
                     />
                     <div className="mt-1 lg:hidden">
                       <p className="font-normal text-gray-500">${item.price}</p>
@@ -91,9 +109,12 @@ const AllProducts = () => {
                     >
                       Delete
                     </button>
-                    <div className="flex mt-1 ml-auto w-fit items-center rounded-full bg-dark_gray py-2 px-3 text-left text-md font-medium text-white lg:hidden">
-                      Details
-                    </div>
+                    <Link
+                      className="flex mt-1 ml-auto w-fit items-center rounded-full bg-dark_gray py-2 px-3 text-left text-md font-medium text-white lg:hidden"
+                      to={"/admin/update-product/" + item._id}
+                    >
+                      Update
+                    </Link>
                   </td>
 
                   <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-6 lg:table-cell">
@@ -106,13 +127,13 @@ const AllProducts = () => {
                       </button>
                       <Link
                         className="inline-flex items-center rounded-xl  bg-dark_gray py-2 px-3 text-md text-white"
-                        to={"/admin/singleproduct/" + item._id}
+                        to={"/admin/update-product/" + item._id}
                       >
-                        Details
+                        Update
                       </Link>
                     </div>
                   </td>
-                  <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+                  <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
                 </tr>
               ))}
 

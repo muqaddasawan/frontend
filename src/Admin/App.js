@@ -12,6 +12,9 @@ import {
   AllOrders,
   AllProducts,
   ProductDetails,
+  OrderDetails,
+  UpdateProduct,
+  ContactMessage,
 } from "./pages";
 
 import { Navbar, Footer, Sidebar, ThemeSettings, Navbar2 } from "./components";
@@ -53,9 +56,15 @@ const Index = () => {
               <Route path="/add-products" element={<AddProducts />} />
               <Route path="/all-products" element={<AllProducts />} />
               <Route path="/singleproduct/:id" element={<ProductDetails />} />
+              <Route path="/update-product/:id" element={<UpdateProduct />} />
               <Route path="/orders-details" element={<Orders />} />
+              <Route
+                path="/order-summary/:orderId"
+                element={<OrderDetails />}
+              />
 
               <Route path="/Subscribers" element={<Subscribers />} />
+              <Route path="/contact-message" element={<ContactMessage />} />
 
               {/* Pages */}
 

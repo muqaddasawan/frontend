@@ -502,25 +502,25 @@ export const employeesGrid = [
 ];
 
 export const links = [
-  {
-    title: "Dashboard",
-    links: [
-      {
-        link: "ecommerce",
-        name: "ecommerce",
-        icon: <FiShoppingBag />,
-      },
-    ],
-  },
+  // {
+  //   title: "Dashboard",
+  //   links: [
+  //     {
+  //       link: "ecommerce",
+  //       name: "ecommerce",
+  //       icon: <FiShoppingBag />,
+  //     },
+  //   ],
+  // },
 
   {
     title: "Pages",
     links: [
-      {
-        link: "orders-details",
-        name: "Orders Details",
-        icon: <AiOutlineShoppingCart />,
-      },
+      // {
+      //   link: "orders-details",
+      //   name: "Orders Details",
+      //   icon: <AiOutlineShoppingCart />,
+      // },
       {
         link: "all-orders",
         name: "All Orders ",
@@ -539,11 +539,16 @@ export const links = [
     ],
   },
   {
-    title: "Apps",
+    title: "Marketing",
     links: [
       {
         link: "subscribers",
         name: "Subscribers",
+        icon: <RiContactsLine />,
+      },
+      {
+        link: "contact-message",
+        name: "Contact Message",
         icon: <RiContactsLine />,
       },
       {

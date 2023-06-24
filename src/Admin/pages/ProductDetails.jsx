@@ -7,8 +7,6 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const params = useParams();
   const id = params.id;
-  console.log(id);
-
   useEffect(() => {
     axios
       .get("api/products/single-product/" + id)
@@ -28,7 +26,7 @@ const ProductDetails = () => {
       <p>{product.price}</p>
       <p>{product.city}</p>
 
-      <img src={`http://localhost:9000/${product.thumbnail}`} />
+      <img src={`http://localhost:8000/${product.thumbnail}`} />
     </div>
   );
 };

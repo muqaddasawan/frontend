@@ -19,6 +19,7 @@ const Orders = () => {
                 clip-rule="evenodd"
               />
             </svg>
+
             <p className="mt-4 font-medium">Sessions</p>
             <p className="mt-2 text-xl font-medium">
               23.4k

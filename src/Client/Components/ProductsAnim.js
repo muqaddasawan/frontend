@@ -95,9 +95,9 @@ const ProductsAnim = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    const city = localStorage.getItem("City");
     axios
-      // .get("api/products/city-products/All Country")
-      .get("api/products/city-products/" + cityname)
+      .get("api/products/city-products/" + city)
       .then(({ data }) => {
         setProducts(data);
       })

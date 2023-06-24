@@ -5,37 +5,13 @@ const About = () => {
     <div className="m-5">
       <h1 className="text-center text-3xl font-bold underline">About Us</h1>
       <p className="text-lg m-5">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose
-      </p>
-      <p className="text-lg m-5">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose
-      </p>
-      <p className="text-lg m-5">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose
+        A family company that began in 2020, producing and selling Baklava, a
+        Turkish dessert. With over 100 years of expertise in the catering and
+        confectionery sector, we have excelled in this area by taking orders
+        through Instagram and by hand delivering to Luton, Dunstable, Hitchin,
+        Hemel Hempstead, Watford, St Albans, Bedford, Milton Keynes, and many
+        other cities and towns. Now introducing postal orders nationwide within
+        in 1-2 working days with free delivery!
       </p>
     </div>
   );

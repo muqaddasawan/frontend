@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   return (
@@ -40,17 +41,13 @@ const FAQ = () => {
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-12">
                 <h3 className="text-sm text-gray-600 lg:text-base">
-                  Is there a free trial with Appsy?
+                  Are these Product Available in all cities?
                 </h3>
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
                   <p className="text-sm">
-                    Lorem ipsum, consectetur adipisicing elit. Adipisci
-                    eligendi, recusandae voluptatum distinctio facilis
-                    necessitatibus aperiam ut? Dolor mollitia modi aliquam, non
-                    sint at reprehenderit commodi dignissimos quo unde
-                    asperiores officiis quos laboriosam similique nihil.
+                    No We only provides in selected cities, to maintain Quality.
                   </p>
                 </div>
               </div>
@@ -79,17 +76,14 @@ const FAQ = () => {
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-12">
                 <h3 className="text-sm text-gray-600 lg:text-base">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit?
+                  Do you Support Cash on Delievery?
                 </h3>
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
                   <p className="text-sm">
-                    Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
-                    elit. Adipisci eligendi, recusandae voluptatum distinctio
-                    facilis necessitatibus aperiam ut? Dolor mollitia modi
-                    aliquam, non sint at reprehenderit commodi dignissimos quo
-                    unde asperiores officiis quos laboriosam similique nihil.
+                    No Only online payment, Credit/debit card, googlepay and
+                    apple pay are accepted.
                   </p>
                 </div>
               </div>
@@ -118,70 +112,24 @@ const FAQ = () => {
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-12">
                 <h3 className="text-sm text-gray-600 lg:text-base">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Distinctio.?
+                  How Do you deliever product?
                 </h3>
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
-                  <p className="text-sm">
-                    Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
-                    elit. Adipisci eligendi, recusandae voluptatum distinctio
-                    facilis necessitatibus aperiam ut? Dolor mollitia modi
-                    aliquam, non sint at reprehenderit commodi dignissimos quo
-                    unde asperiores officiis quos laboriosam similique nihil.
-                  </p>
-                </div>
-              </div>
-            </label>
-          </li>
-
-          <li className="text-left">
-            <label
-              htmlFor="accordion-4"
-              className="relative flex flex-col rounded-md border border-gray-100 shadow-md"
-            >
-              <input className="peer hidden" type="checkbox" id="accordion-4" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute right-0 top-4 ml-auto mr-5 h-4 text-gray-500 transition peer-checked:rotate-180"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-              <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-12">
-                <h3 className="text-sm text-gray-600 lg:text-base">
-                  Lorem ipsum dolor sit amet.?
-                </h3>
-              </div>
-              <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
-                <div className="p-5">
-                  <p className="text-sm">
-                    Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
-                    elit. Adipisci eligendi, recusandae voluptatum distinctio
-                    facilis necessitatibus aperiam ut? Dolor mollitia modi
-                    aliquam, non sint at reprehenderit commodi dignissimos quo
-                    unde asperiores officiis quos laboriosam similique nihil.
-                  </p>
+                  <p className="text-sm">We deliever through Royal mail.</p>
                 </div>
               </div>
             </label>
           </li>
         </ul>
         <div className="mt-20 flex justify-center">
-          <a
-            className="inline-flex cursor-pointer rounded-lg bg-blue-500 py-3 px-5 text-lg text-white"
-            href="#"
+          <Link
+            className="inline-flex cursor-pointer rounded-lg bg-dark_gray py-3 px-5 text-lg text-white"
+            to="/contact"
           >
             Still have questions?
-          </a>
+          </Link>
         </div>
       </div>
     </div>
