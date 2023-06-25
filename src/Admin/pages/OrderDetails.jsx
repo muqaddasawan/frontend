@@ -58,7 +58,9 @@ const OrderDetails = () => {
           </div>
 
           {!singleOrder ? (
-            console.log("Fetching")
+            <div>
+              <h2 className="text-center">Order Id not Found</h2>
+            </div>
           ) : (
             <div className="flex flex-wrap -mx-4 mb-6 xl:mb-24">
               {singleOrder.map((order, i) => (
