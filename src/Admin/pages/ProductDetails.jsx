@@ -26,7 +26,7 @@ const ProductDetails = () => {
       <p>{product.price}</p>
       <p>{product.city}</p>
 
-      <img src={`http://localhost:8000/${product.thumbnail}`} />
+      <img src={`https://api.thebaklavaboxx.co.uk/${product.thumbnail}`} />
     </div>
   );
 };

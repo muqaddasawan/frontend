@@ -49,10 +49,10 @@ const OrderDetails = () => {
 
   return (
     <div>
-      <section class="pt-12 pb-6 overflow-hidden bg-blueGray-100">
-        <div class="container px-4 mx-auto">
-          <div class="mb-8 pb-8 border-b border-gray-200 border-opacity-40">
-            <h1 class="text-center text-3xl xl:text-4xl font-heading font-medium">
+      <section className="pt-12 mt-10 pb-6 bg-blueGray-100">
+        <div className="container px-4 mx-auto">
+          <div className="mb-8 pb-8 border-b border-gray-200 border-opacity-40">
+            <h1 className="text-center text-2xl xl:text-4xl font-heading font-medium">
               Order Details
             </h1>
           </div>
@@ -60,44 +60,44 @@ const OrderDetails = () => {
           {!singleOrder ? (
             console.log("Fetching")
           ) : (
-            <div class="flex flex-wrap -mx-4 mb-6 xl:mb-24">
+            <div className="flex flex-wrap -mx-4 mb-6 xl:mb-24">
               {singleOrder.map((order, i) => (
                 <div>
-                  <div key={i} class="w-full px-4 mb-5 md:mb-0">
-                    <div class="py-12 px-8 md:px-12 bg-white rounded-3xl">
-                      <span class="inline-block text-darkBlueGray-300 font-medium mb-6 text-2xl">
+                  <div key={i} className="w-full px-4 mb-5 md:mb-0">
+                    <div className="py-12 px-8 md:px-12 bg-white rounded-3xl">
+                      <span className="inline-block text-darkBlueGray-300 font-medium mb-6 text-2xl">
                         {order.products.length} products
                       </span>
-                      <div class="xl:px-10">
+                      <div className="xl:px-10">
                         {order.products.map((product, i) => (
-                          <div class="relative flex flex-wrap items-center xl:justify-between -mx-4 mb-8 pb-8 border-b border-gray-200 border-opacity-40">
-                            <div class="relative w-full md:w-auto px-4 mb-6 xl:mb-2">
-                              <div class="block mx-auto max-w-max">
+                          <div className=" flex flex-wrap items-center xl:justify-between -mx-4 mb-8 pb-8 border-b border-gray-200 border-opacity-40">
+                            <div className=" w-full md:w-auto px-4 mb-6 xl:mb-2">
+                              <div className="block mx-auto max-w-max">
                                 <img
-                                  class="h-28 object-cover"
-                                  src={`http://localhost:8000/${product.image}`}
-                                  alt=""
+                                  className="h-28 object-cover"
+                                  src={`https://api.thebaklavaboxx.co.uk/${product.image}`}
+                                  alt="Image Not Found"
                                 />
                               </div>
                             </div>
-                            <div class="w-full md:w-auto px-4 mb-6 xl:mb-2">
-                              <div class="block mb-5 text-xl font-heading font-medium">
+                            <div className="w-full md:w-auto px-4 mb-6 xl:mb-2">
+                              <div className="block mb-5 text-xl font-heading font-medium">
                                 {product.name}
                               </div>
                             </div>
-                            <div class="w-full xl:w-auto px-4 mb-6 xl:mb-0 mt-6 xl:mt-0">
-                              <div class="flex items-center">
-                                <h4 class="mr-4 font-heading font-medium">
+                            <div className="w-full xl:w-auto px-4 mb-6 xl:mb-0 mt-6 xl:mt-0">
+                              <div className="flex items-center">
+                                <h4 className="mr-4 font-heading font-medium">
                                   Qty:
                                 </h4>
-                                <div class="w-16 px-3 py-2 text-center placeholder-gray-400 text-gray-400 bg-blue-50 border-2 border-blue-400 outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-xl">
+                                <div className="w-16 px-3 py-2 text-center placeholder-gray-400 text-gray-400 bg-blue-50 border-2 border-blue-400 outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-xl">
                                   {product.quantity}
                                 </div>
                               </div>
                             </div>
-                            <div class="w-full xl:w-auto px-4">
-                              <span class="text-xl font-heading font-medium text-blue-500">
-                                <span class="text-sm">£</span>
+                            <div className="w-full xl:w-auto px-4">
+                              <span className="text-xl font-heading font-medium text-blue-500">
+                                <span className="text-sm">£</span>
                                 <span>{product.itemTotal}</span>
                               </span>
                             </div>
@@ -107,29 +107,29 @@ const OrderDetails = () => {
                     </div>
                   </div>
 
-                  <div class="w-full md:w-6/12 xl:w-6/12 px-4">
-                    <div class="mb-14">
-                      <h2 class="mb-7 md:mt-6 text-3xl font-heading font-medium">
+                  <div className="w-full md:w-6/12 xl:w-6/12 px-4">
+                    <div className="mb-14">
+                      <h2 className="mb-7 md:mt-6 text-3xl font-heading font-medium">
                         Order totals
                       </h2>
-                      <div class="flex items-center justify-between py-4 px-10 mb-3 leading-8 bg-white bg-opacity-50 font-heading font-medium rounded-3xl">
+                      <div className="flex items-center justify-between py-4 px-10 mb-3 leading-8 bg-white bg-opacity-50 font-heading font-medium rounded-3xl">
                         <span>Subtotal: </span>
-                        <span class="flex items-center text-xl">
-                          <span class="mr-2 ml-5 text-lg">£</span>
+                        <span className="flex items-center text-xl">
+                          <span className="mr-2 ml-5 text-lg">£</span>
                           <span>{order.payment.transaction.amount}</span>
                         </span>
                       </div>
-                      <div class="flex items-center justify-between py-4 px-10 mb-3 leading-8 bg-white bg-opacity-50 font-heading font-medium rounded-3xl">
+                      <div className="flex items-center justify-between py-4 px-10 mb-3 leading-8 bg-white bg-opacity-50 font-heading font-medium rounded-3xl">
                         <span>Shipping</span>
-                        <span class="flex items-center text-xl">
-                          <span class="mr-2 ml-5 text-lg">£ </span>
+                        <span className="flex items-center text-xl">
+                          <span className="mr-2 ml-5 text-lg">£ </span>
                           <span>10</span>
                         </span>
                       </div>
-                      <div class="flex items-center justify-between py-4 px-10 mb-6 leading-8 bg-white font-heading font-medium rounded-3xl">
+                      <div className="flex items-center justify-between py-4 px-10 mb-6 leading-8 bg-white font-heading font-medium rounded-3xl">
                         <span>Total</span>
-                        <span class="flex items-center text-xl text-blue-500">
-                          <span class="mr-2 ml-5 text-lg">£ </span>
+                        <span className="flex items-center text-xl text-blue-500">
+                          <span className="mr-2 ml-5 text-lg">£ </span>
                           <span>
                             {parseFloat(order.payment.transaction.amount) + 10}
                           </span>
@@ -166,8 +166,8 @@ const OrderDetails = () => {
                         ))}
                       </select>
                     </div>
-                    <div class="text-center md:text-left">
-                      <h4 class="mb-5 text-3xl font-heading font-medium">
+                    <div className="text-center md:text-left">
+                      <h4 className="mb-5 text-3xl font-heading font-medium">
                         Shipping Details
                       </h4>
                       <h4 className="text-lg font-semibold">

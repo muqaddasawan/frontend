@@ -17,7 +17,7 @@ import {
   ContactMessage,
 } from "./pages";
 
-import { Navbar, Footer, Sidebar, ThemeSettings, Navbar2 } from "./components";
+import { Navbar, Footer, Sidebar } from "./components";
 
 import { useStateContext } from "./contexts/ContextProvider";
 
@@ -47,11 +47,12 @@ const Index = () => {
           <div>
             <Routes>
               {/* Dashboard */}
-              <Route path="/" element={<Ecommerce />} />
+              {/* <Route path="/" element={<Ecommerce />} /> */}
+              <Route path="/" element={<AllOrders />} />
               <Route path="/ecommerce" element={<ProtectedAdminRoutes />}>
                 <Route path="/ecommerce" element={<Ecommerce />} />
               </Route>
-              <Route path="/ecommerce" element={<Ecommerce />} />
+              <Route path="/ecommerce" element={<AllOrders />} />
               <Route path="/all-orders" element={<AllOrders />} />
               <Route path="/add-products" element={<AddProducts />} />
               <Route path="/all-products" element={<AllProducts />} />

@@ -16,8 +16,9 @@ function App() {
         <Route path="/*" element={<Main />} />
         <Route element={<ProtectedAdminRoutes />}>
           <Route path="/admin/*" element={<MainAdmin />} />
+          <Route path="/admin-user/register" element={<AdminRegister />} />
         </Route>
-        <Route path="/admin-user/register" element={<AdminRegister />} />
+
         <Route path="/admin-user/login" element={<LoginAdmin />} />
         <Route path="/user/login" element={<ClientLogin />} />
         <Route path="/user/register" element={<ClientRegister />} />

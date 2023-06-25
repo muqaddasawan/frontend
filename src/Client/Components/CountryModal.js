@@ -8,17 +8,13 @@ import {
 } from "@material-tailwind/react";
 import { useState, useEffect } from "react";
 
-const CountryModal = ({ handleClick }) => {
+const CountryModal = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
 
   const [cityname, setcityname] = useState("");
   // localStorage.removeItem("City");
   console.log(cityname);
-
-  function handleClick() {
-    alert("call from nav");
-  }
 
   useEffect(() => {
     const city = localStorage.getItem("City");

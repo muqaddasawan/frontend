@@ -22,9 +22,9 @@ const Footer = () => {
           <Link className="hover:text-gray-900" to="/contact">
             Contact Us
           </Link>
-          <Link className="hover:text-gray-900" to="/privacy">
+          {/* <Link className="hover:text-gray-900" to="/privacy">
             Privacy Policy
-          </Link>
+          </Link> */}
           <Link className="hover:text-gray-900" to="/faq">
             FAQ
           </Link>

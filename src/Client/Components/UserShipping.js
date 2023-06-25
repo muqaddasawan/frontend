@@ -20,50 +20,50 @@ const UserShipping = () => {
   ]);
   return (
     <div>
-      <section class=" py-12 text-gray-800 sm:py-24">
-        <div class="mx-auto flex max-w-md flex-col rounded-lg lg:max-w-screen-xl lg:flex-row">
-          <div class="max-w-2xl px-4 lg:pr-24 lg:w-6/12">
-            <h3 class="mb-5 text-3xl font-semibold border-b text-center">
+      <section className=" py-12 text-gray-800 sm:py-24">
+        <div className="mx-auto flex max-w-md flex-col rounded-lg lg:max-w-screen-xl lg:flex-row">
+          <div className="max-w-2xl px-4 lg:pr-24 lg:w-6/12">
+            <h3 className="mb-5 text-3xl font-semibold border-b text-center">
               Previous Shipping Details
             </h3>
-            <h3 class="mb-5 text-2xl font-semibold">{reciever}</h3>
-            <div class="mb-5 flex font-medium">
-              <div class="">
-                <p class="mb-2">House number#</p>
-                <span class="font-normal text-gray-600">{house}</span>
+            <h3 className="mb-5 text-2xl font-semibold">{reciever}</h3>
+            <div className="mb-5 flex font-medium">
+              <div className="">
+                <p className="mb-2">House number#</p>
+                <span className="font-normal text-gray-600">{house}</span>
               </div>
             </div>
-            <div class="mb-5 flex font-medium">
-              <div class="">
-                <p class="mb-2">Street :</p>
-                <span class="font-normal text-gray-600">{street}</span>
+            <div className="mb-5 flex font-medium">
+              <div className="">
+                <p className="mb-2">Street :</p>
+                <span className="font-normal text-gray-600">{street}</span>
               </div>
             </div>
-            <div class="mb-5 flex font-medium">
-              <div class="">
-                <p class="mb-2">City :</p>
-                <span class="font-normal text-gray-600">{city}</span>
+            <div className="mb-5 flex font-medium">
+              <div className="">
+                <p className="mb-2">City :</p>
+                <span className="font-normal text-gray-600">{city}</span>
               </div>
             </div>
-            <div class="mb-5 flex font-medium">
-              <div class="">
-                <p class="mb-2">PostalCode #</p>
-                <span class="font-normal text-gray-600">{postal}</span>
+            <div className="mb-5 flex font-medium">
+              <div className="">
+                <p className="mb-2">PostalCode #</p>
+                <span className="font-normal text-gray-600">{postal}</span>
               </div>
             </div>
           </div>
-          <div class="lg:w-6/12 border border-gray-100 shadow-gray-500/20 mt-8 mb-8 max-w-md bg-white shadow-sm sm:rounded-lg sm:shadow-lg lg:mt-0">
-            <div class="relative border-b border-gray-300 p-4 py-8 sm:px-8">
-              <h3 class="mb-1 inline-block text-2xl font-semibold">
-                <span class="mr-4">Update Shipping Details</span>
+          <div className="lg:w-6/12 border border-gray-100 shadow-gray-500/20 mt-8 mb-8 max-w-md bg-white shadow-sm sm:rounded-lg sm:shadow-lg lg:mt-0">
+            <div className="relative border-b border-gray-300 p-4 py-8 sm:px-8">
+              <h3 className="mb-1 inline-block text-2xl font-semibold">
+                <span className="mr-4">Update Shipping Details</span>
               </h3>
             </div>
             <form>
-              <div class="p-4 sm:p-8">
+              <div className="p-4 sm:p-8">
                 <input
                   id="name"
                   type="text"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter Reciever name"
                   onChange={(e) => {
                     setReciever(e.target.value);
@@ -72,7 +72,7 @@ const UserShipping = () => {
                 <input
                   id="house"
                   type="text"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter House Number"
                   onChange={(e) => {
                     setHouse(e.target.value);
@@ -81,7 +81,7 @@ const UserShipping = () => {
                 <input
                   id="Street"
                   type="text"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter Street Details"
                   onChange={(e) => {
                     setStreet(e.target.value);
@@ -110,7 +110,7 @@ const UserShipping = () => {
                 <input
                   id="Postal Code"
                   type="text"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter Postal code"
                   onChange={(e) => {
                     setPostal(e.target.value);
@@ -118,7 +118,7 @@ const UserShipping = () => {
                 />
                 <button
                   type="Submit"
-                  class="w-full rounded-lg border mt-5 border-blue-700 bg-dark_gray p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-gray_light hover:text-white"
+                  className="w-full rounded-lg border mt-5 border-blue-700 bg-dark_gray p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-gray_light hover:text-white"
                 >
                   Save
                 </button>

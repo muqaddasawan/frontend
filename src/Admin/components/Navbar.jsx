@@ -1,12 +1,7 @@
 import { AiOutlineMenu } from "react-icons/ai";
-import { FiShoppingCart } from "react-icons/fi";
-import { BsChatLeft } from "react-icons/bs";
-import { RiNotification3Line } from "react-icons/ri";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState, useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 import DropDownAdminProfile from "./DropDownAdminProfile";
 
@@ -63,7 +58,7 @@ const Navbar = () => {
   });
 
   return (
-    <div className="pt-3 flex relative justify-between md:overflow-hidden  bg-gray-100">
+    <div className="pt-3 flex relative justify-between md:overflow-hidden bg-white">
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu((preActiveMenu) => !preActiveMenu)}
@@ -91,7 +86,7 @@ const Navbar = () => {
           color="blue"
           icon={<RiNotification3Line />}
         /> */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="overflow-hidden lg:flex lg:flex-1 lg:justify-end mr-6">
           <div className="text-sm font-semibold leading-6 text-gray-900">
             {adminname ? (
               <DropDownAdminProfile adminname={adminname} />
@@ -108,7 +103,6 @@ const Navbar = () => {
 
         {/* {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />} */}
-        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );

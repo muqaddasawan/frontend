@@ -47,28 +47,24 @@ const UpdateProduct = () => {
   formData.append("name", p_name);
   formData.append("price", p_price);
   formData.append("city", p_city);
-  p_files && formData.append("thumbnail", p_files);
+  formData.append("thumbnail", p_files);
 
   const handleUpdateProduct = async (e) => {
-    console.log(formData);
+    e.preventDefault();
     try {
-      const { response } = await axios.put(
-        `api/products/update-product/${p_id}`,
-        formData
-      );
-      //   const response = await axios({
-      //     method: "put",
-      //     url: `api/products/update-product/${p_id}`,
-      //     data: formData,
-      //     headers: { "Content-Type": "multipart/form-data" },
-      //   });
+      const response = await axios({
+        method: "put",
+        url: `api/products/update-product/${p_id}`,
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      navigate("/admin/all-products");
 
       if (response.status === 200) {
         document.getElementById("successdiv").classList.remove("hidden");
         document.getElementById("alertdiv").classList.add("hidden");
         const message = response.data.message;
         document.getElementById("successmsg").innerHTML = message;
-        navigate("/admin/add-products");
       }
     } catch (error) {
       document.getElementById("alertdiv").classList.remove("hidden");
@@ -179,7 +175,9 @@ const UpdateProduct = () => {
           <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="font-semibold text-center">Old image</p>
             <div className="h-20 w-20">
-              <img src={`http://localhost:8000/${product.thumbnail}`} />
+              <img
+                src={`https://api.thebaklavaboxx.co.uk/${product.thumbnail}`}
+              />
             </div>
           </div>
           <div className="w-full text-center">

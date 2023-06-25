@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "../../Services/axiosInterceptor";
 import { useEffect, useState } from "react";
+import { Rating } from "@material-tailwind/react";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -48,16 +49,19 @@ const Reviews = () => {
                       <div className="text-lg font-medium">
                         {review.buyer.clientname}
                       </div>
+                      <div className="text-gray-600 dark:text-gray-400">
+                        <Rating value={Number(review.rating)} readonly />
+                      </div>
                       {/* <div className="text-gray-600 dark:text-gray-400">
-                    VP Sales at Google
-                  </div> */}
+                        VP Sales at Google
+                      </div> */}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-          <div className="">
+          {/* <div className="">
             <div className="flex flex-col justify-between w-full h-full px-6 py-6 bg-gray-100 dark:bg-gray-800 md:px-14 rounded-2xl md:py-14 dark:bg-trueGray-800">
               <p className="text-lg leading-normal">
                 A product review is an evaluation of a product that shares the
@@ -73,36 +77,13 @@ const Reviews = () => {
                 </div>
                 <div>
                   <div className="text-lg font-medium">Maria</div>
-                  {/* <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-gray-600 dark:text-gray-400">
                     Lead marketer at Netflix{" "}
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="">
-            <div className="flex flex-col justify-between w-full h-full px-6 py-6 bg-gray-100 dark:bg-gray-800 md:px-14 rounded-2xl md:py-14 dark:bg-trueGray-800">
-              <p className="text-lg leading-normal">
-                A product review is an evaluation of a product that shares the
-                reviewer's opinion about its features, performance, quality
-              </p>
-              <div className="flex items-center mt-8 space-x-3">
-                <div className="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
-                  <img
-                    alt="Avatar"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRASacy7DHTTowQ2oNf180d3wev9Sr_u0DzMQ&usqp=CAU"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <div className="text-lg font-medium">M Farhan</div>
-                  {/* <div className="text-gray-600 dark:text-gray-400">
-                    Co-founder of Acme Inc
-                  </div> */}
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

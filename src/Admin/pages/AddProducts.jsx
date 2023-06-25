@@ -34,7 +34,7 @@ const AddProducts = () => {
         setProduct_price("");
         setAvailable_city([]);
 
-        navigate("/admin/add-products");
+        navigate("/admin/all-products");
       }
     } catch (error) {
       document.getElementById("alertdiv").classList.remove("hidden");
@@ -53,7 +53,7 @@ const AddProducts = () => {
   }
 
   return (
-    <div className="mt-12">
+    <div className="mt-20">
       <div className="my-4 max-w-screen-md border-spacing-0 px-4 shadow-xl sm:mx-4 sm:rounded-xl sm:px-4 sm:py-4 md:mx-auto">
         <div className="sm:flex sm:items-center sm:justify-between flex-col sm:flex-row">
           <p className="flex-1 text-xl font-bold text-center  text-gray-900">
@@ -121,7 +121,7 @@ const AddProducts = () => {
           </div>
 
           <div className="flex flex-col gap-4 py-4 sm:flex-row">
-            <p className="shrink-0 w-32 font-medium">Price</p>
+            <p className="shrink-0 w-32 font-medium">Price £:</p>
             <input
               value={p_price}
               type="number"

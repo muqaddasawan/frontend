@@ -46,7 +46,7 @@ const AdminRegister = () => {
         <div className="flex w-full flex-col md:w-1/2 lg:w-1/2">
           <div className="my-auto flex flex-col justify-center px-6 pt-8 sm:px-24 md:justify-start md:px-8 md:pt-0 lg:px-12">
             <p className="text-center text-3xl font-bold">Welcome</p>
-            <p className="mt-2 text-center mb-2">Create New account.</p>
+            <p className="mt-2 text-center mb-2">Make New Admin.</p>
             <div id="alertdiv" className="hidden">
               <div className="flex p-3 justify-between rounded-md bg-red-400 text-white">
                 <p id="alert" className="text-base"></p>
@@ -119,7 +119,7 @@ const AdminRegister = () => {
                     onChange={(e) =>
                       setinput({
                         ...input,
-                        [e.target.name]: e.target.value,
+                        [e.target.name]: e.target.value.toLowerCase(),
                       })
                     }
                   />

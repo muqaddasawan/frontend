@@ -7,11 +7,7 @@ import axios from "../../Services/axiosInterceptor";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-  const [reciever, setReciever] = useState("Malik");
-  const [house, setHouse] = useState("89");
-  const [street, setStreet] = useState("30");
-  const [postal, setPostal] = useState("2132");
-  const [city, setCity] = useState([]);
+  const city = localStorage.getItem("City");
   const [cityOptions, setCityOptions] = useState([
     "Luton",
     "Dunstable",
@@ -28,7 +24,7 @@ const Checkout = () => {
     house: "",
     street: "",
     postal: "",
-    city: "Luton",
+    city: city,
   });
 
   const {
@@ -60,7 +56,6 @@ const Checkout = () => {
 
   useEffect(() => {
     setclientLoggedtoken(localStorage.getItem("clienttoken"));
-    console.log(items);
     getToken();
   }, [clientLoggedtoken]);
 
@@ -104,9 +99,6 @@ const Checkout = () => {
   return (
     <div className="mb-5 z-8">
       <div className="flex  flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-8 lg:px-20 xl:px-32">
-        <a href="#" className="text-2xl font-bold text-gray-800">
-          sneekpeeks
-        </a>
         <div className="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
           <div className="relative">
             <ul className="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
@@ -124,8 +116,8 @@ const Checkout = () => {
                     strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
@@ -141,8 +133,8 @@ const Checkout = () => {
                 strokeWidth="2"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M9 5l7 7-7 7"
                 />
               </svg>
@@ -164,8 +156,8 @@ const Checkout = () => {
                 strokeWidth="2"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M9 5l7 7-7 7"
                 />
               </svg>
@@ -189,11 +181,14 @@ const Checkout = () => {
             Check your items. And select a suitable payment method.
           </p>
           <div className="mt-8 space-y-3 rounded-lg border border-blue-gray-100 bg-white px-2 py-4 sm:px-6">
-            {items.map((item) => (
-              <div className="flex flex-col rounded-lg bg-white sm:flex-row">
+            {items.map((item, i) => (
+              <div
+                key={i}
+                className="flex flex-col rounded-lg bg-white sm:flex-row"
+              >
                 <img
                   className="m-2 h-24 w-28 rounded-md border border-blue-gray-100 object-cover object-center"
-                  src={`http://localhost:8000/${item.image}`}
+                  src={`https://api.thebaklavaboxx.co.uk/${item.image}`}
                   alt="Image"
                 />
                 <div className="flex w-full flex-col px-4 py-4">
@@ -260,12 +255,12 @@ const Checkout = () => {
 
           <div className="">
             <form onSubmit={handleShipping}>
-              <div class="">
+              <div className="">
                 <input
                   id="reciever"
                   name="reciever"
                   type="text"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter Reciever name"
                   onChange={(e) =>
                     setinput({
@@ -278,7 +273,7 @@ const Checkout = () => {
                   id="house"
                   name="house"
                   type="text"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter House Number"
                   onChange={(e) =>
                     setinput({
@@ -291,7 +286,7 @@ const Checkout = () => {
                   id="street"
                   name="street"
                   type="text"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter Street Details"
                   onChange={(e) =>
                     setinput({
@@ -305,7 +300,7 @@ const Checkout = () => {
                   id="postal"
                   type="text"
                   name="postal"
-                  class="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
                   placeholder="Enter Postal code"
                   onChange={(e) =>
                     setinput({
@@ -321,6 +316,7 @@ const Checkout = () => {
                   <select
                     name="city"
                     id="city"
+                    defaultValue={city}
                     className="w-full rounded-md bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1"
                     onChange={(e) =>
                       setinput({
@@ -339,7 +335,7 @@ const Checkout = () => {
 
                 <button
                   type="Submit"
-                  class="w-full rounded-lg border mt-5 border-blue-700 bg-dark_gray p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-gray_light hover:text-white"
+                  className="w-full rounded-lg border mt-5 border-blue-700 bg-dark_gray p-3 text-center font-medium text-white outline-none transition focus:ring hover:border-blue-700 hover:bg-gray_light hover:text-white"
                 >
                   Save Shipping Details
                 </button>
@@ -374,7 +370,7 @@ const Checkout = () => {
               )}
             </div>
 
-            <div className="w-full">
+            {/* <div className="w-full">
               <GooglePayButton
                 environment="TEST"
                 paymentRequest={{
@@ -412,7 +408,7 @@ const Checkout = () => {
                   console.log("load payment data", paymentRequest);
                 }}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

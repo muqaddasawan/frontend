@@ -59,9 +59,11 @@ const NavbarMenu = () => {
             aria-label="Global"
           >
             <div className="flex lg:flex-1">
-              <a href="#" className="-m-1.5 p-1.5">
-                <h2 className="font-bold">The Baklava Box</h2>
-              </a>
+              <Link to="/" className="-m-1.5 p-1.5">
+                <h2 className="font-bold text-lg lg:text-2xl text-orange-700">
+                  The Baklava Boxx
+                </h2>
+              </Link>
             </div>
             <div className="flex lg:hidden">
               <button
@@ -74,21 +76,19 @@ const NavbarMenu = () => {
               </button>
             </div>
             <div className="hidden lg:flex lg:gap-x-12">
-              {navigation.map((item) => (
-                <>
-                  <Link
-                    key={item.id}
-                    to={item.href}
-                    className="text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    <MenuItem className=" text-base flex items-center gap-2 lg:rounded-full">
-                      {React.createElement(item.icon, {
-                        className: "h-[18px] w-[18px]",
-                      })}
-                      {item.name}
-                    </MenuItem>
-                  </Link>
-                </>
+              {navigation.map((item, i) => (
+                <Link
+                  key={i}
+                  to={item.href}
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  <MenuItem className=" text-base flex items-center gap-2 lg:rounded-full">
+                    {React.createElement(item.icon, {
+                      className: "h-[18px] w-[18px]",
+                    })}
+                    {item.name}
+                  </MenuItem>
+                </Link>
               ))}
             </div>
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -116,7 +116,6 @@ const NavbarMenu = () => {
             <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <Link to="/" className="-m-1.5 p-1.5">
-                  <span className="sr-only">Your Company</span>
                   <h2 className="font-bold">The Baklava Box</h2>
                   <hr />
                 </Link>
@@ -146,8 +145,8 @@ const NavbarMenu = () => {
                     </div>
                   </div>
                   <div className="space-y-2 py-6">
-                    {navigation.map((item) => (
-                      <div key={item.id}>
+                    {navigation.map((item, i) => (
+                      <div key={i}>
                         <Link
                           to={item.href}
                           onClick={() => setMobileMenuOpen(false)}

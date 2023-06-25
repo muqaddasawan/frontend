@@ -22,7 +22,7 @@ const AllOrders = () => {
   });
   return (
     <>
-      <div className="mx-auto mt-14  max-w-screen-lg px-2 overflow-hidden">
+      <div className="mx-auto mt-20 max-w-screen-lg px-2 overflow-hidden">
         <div className="sm:flex sm:items-center sm:justify-between flex-col sm:flex-row">
           <h1 className="text-center flex-1 text-2xl font-bold text-gray-900 border-b">
             Orders

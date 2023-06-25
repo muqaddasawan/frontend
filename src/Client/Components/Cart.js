@@ -86,7 +86,7 @@ const Cart = ({ showCart }) => {
                                   <li key={item.id} className="flex py-6 mb-3">
                                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                       <img
-                                        src={`http://localhost:8000/${item.image}`}
+                                        src={`https://api.thebaklavaboxx.co.uk/${item.image}`}
                                         alt={item.imageAlt}
                                         className="h-full w-full object-cover object-center"
                                       />
