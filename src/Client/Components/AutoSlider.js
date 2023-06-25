@@ -84,6 +84,13 @@ export default function AutoSlider() {
               width="100%"
               height="100%"
               controls={false}
+              config={{
+                file: {
+                  attributes: {
+                    controlsList: "nodownload", //<- this is the important bit
+                  },
+                },
+              }}
             />
           </div>
           <div className="absolute w-full top-1/2 transform -translate-y-1/2 flex justify-between items-start px-3">
