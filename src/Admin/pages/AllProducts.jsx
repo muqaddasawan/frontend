@@ -87,7 +87,7 @@ const AllProducts = () => {
 
                       <img
                         className="h-20 w-20 rounded-lg"
-                        src={`https://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
+                        src={`http://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
                       />
                     </div>
                     <div className="mt-1 lg:hidden">

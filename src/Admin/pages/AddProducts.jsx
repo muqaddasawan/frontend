@@ -28,11 +28,11 @@ const AddProducts = () => {
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
-          "Access-Control-Allow-Origin": "https://api.thebaklavaboxx.co.uk/",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE",
+          "Access-Control-Allow-Origin": "*",
         },
-        // https://api.thebaklavaboxx.co.uk/
-
+        // http://localhost:8000/
+        // http://localhost:8000/
         // headers: {
         //   "Access-Control-Allow-Origin": "*",
         //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE",
