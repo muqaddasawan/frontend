@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://api.thebaklavaboxx.co.uk/",
+  baseURL: "https://api.thebaklavaboxx.co.uk/",
   headers: {
-    "Access-Control-Allow-Origin": "http://api.thebaklavaboxx.co.uk/",
+    "Access-Control-Allow-Origin": "https://api.thebaklavaboxx.co.uk/",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     "Access-Control-Allow-Headers":
       "X-Requested-With, content-type, Authorization",
