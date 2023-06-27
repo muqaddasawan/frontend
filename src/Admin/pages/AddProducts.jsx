@@ -20,17 +20,17 @@ const AddProducts = () => {
   const handleaddProduct = async (e) => {
     e.preventDefault();
     try {
-      // const response = await axios.post("api/products/add-product", formData);
+      const response = await axios.post("api/products/add-product", formData);
 
-      const response = await axios({
-        method: "post",
-        url: "api/products/add-product",
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Access-Control-Allow-Origin": "https://api.thebaklavaboxx.co.uk/",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        },
+        //  const response = await axios({
+      //   method: "post",
+      //   url: "api/products/add-product",
+      //   data: formData,
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //     "Access-Control-Allow-Origin": "https://api.thebaklavaboxx.co.uk/",
+      //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      //   },
         // https://api.thebaklavaboxx.co.uk/
 
         // headers: {
@@ -38,7 +38,7 @@ const AddProducts = () => {
         //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE",
         //   "Content-Type": "multipart/form-data",
         // },
-      });
+     // });
       if (response.status === 200) {
         document.getElementById("successdiv").classList.remove("hidden");
         document.getElementById("alertdiv").classList.add("hidden");
