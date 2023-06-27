@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+// import axios from "axios";
 import axios from "../../Services/axiosInterceptor";
 import { useNavigate } from "react-router-dom";
 
@@ -19,11 +20,24 @@ const AddProducts = () => {
   const handleaddProduct = async (e) => {
     e.preventDefault();
     try {
+      // const response = await axios.post("api/products/add-product", formData);
+
       const response = await axios({
         method: "post",
         url: "api/products/add-product",
         data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "https://api.thebaklavaboxx.co.uk/",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+        // https://api.thebaklavaboxx.co.uk/
+
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE",
+        //   "Content-Type": "multipart/form-data",
+        // },
       });
       if (response.status === 200) {
         document.getElementById("successdiv").classList.remove("hidden");
