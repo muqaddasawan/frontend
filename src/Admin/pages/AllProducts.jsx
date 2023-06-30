@@ -8,16 +8,18 @@ const AllProducts = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
+  const getProducts = async () => {
+    try {
+      const { data } = await axios.get("/api/products/all-products");
+      setProducts(data);
+    } catch (error) {}
+  };
+
   useEffect(() => {
-    axios
-      .get("api/products/all-products")
-      .then(({ data }) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [products]);
+    if (products.length === 0) {
+      getProducts();
+    }
+  });
 
   const deleteProduct = async (id) => {
     try {

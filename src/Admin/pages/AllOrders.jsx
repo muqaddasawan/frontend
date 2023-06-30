@@ -11,7 +11,6 @@ const AllOrders = () => {
     try {
       const { data } = await axios.get("/api/braintree/orders");
       setOrders(data);
-      console.log(data);
     } catch (error) {}
   };
 

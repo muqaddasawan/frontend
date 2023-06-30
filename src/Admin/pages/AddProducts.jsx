@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-// import axios from "axios";
+import mainaxios from "axios";
 import axios from "../../Services/axiosInterceptor";
 import { useNavigate } from "react-router-dom";
 
@@ -22,9 +22,9 @@ const AddProducts = () => {
     try {
       // const response = await axios.post("api/products/add-product", formData);
 
-      const response = await axios({
+      const response = await mainaxios({
         method: "post",
-        url: "api/products/add-product",
+        url: "/api/products/add-product",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -103,7 +103,11 @@ const AddProducts = () => {
             </button>
           </div>
         </div>
-        <form onSubmit={handleaddProduct}>
+        <form
+          onSubmit={handleaddProduct}
+          method="POST"
+          encType="multipart/form-data"
+        >
           <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="shrink-0 w-32 font-medium">Product Name</p>
 
