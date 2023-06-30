@@ -28,7 +28,7 @@ const ClientRegister = () => {
     e.preventDefault();
     console.log(input);
     try {
-      const response = await axios.post("api/auth/client/register", input);
+      const response = await axios.post("/api/auth/client/register", input);
       alert(response.data.message);
       if (response.status === 201) {
         localStorage.setItem("City", input.city);

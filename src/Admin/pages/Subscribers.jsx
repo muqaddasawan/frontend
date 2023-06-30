@@ -7,7 +7,7 @@ const Subscribers = () => {
 
   useEffect(() => {
     axios
-      .get("api/subscriber/all-subscribers")
+      .get("/api/subscriber/all-subscribers")
       .then(({ data }) => {
         setSubscribers(data);
       })

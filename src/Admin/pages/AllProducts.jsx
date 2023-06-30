@@ -28,7 +28,7 @@ const AllProducts = () => {
       );
       if (answer && answer === "yes") {
         const { response } = await axios.delete(
-          `api/products/delete-product/${id}`
+          `/api/products/delete-product/${id}`
         );
         alert("Prodcut Deleted Successfully");
         navigate("/admin/all-products");

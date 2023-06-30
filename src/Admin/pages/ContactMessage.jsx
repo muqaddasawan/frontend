@@ -7,7 +7,7 @@ const ContactMessage = () => {
 
   useEffect(() => {
     axios
-      .get("api/contact/all-contacts")
+      .get("/api/contact/all-contacts")
       .then(({ data }) => {
         setContactMessage(data);
       })

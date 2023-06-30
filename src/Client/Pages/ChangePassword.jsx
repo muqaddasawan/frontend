@@ -16,7 +16,7 @@ const ChangePassword = () => {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("api/auth/change-password", input, {
+      const response = await axios.post("/api/auth/change-password", input, {
         headers: {
           authorization: `Bearer ${token}`,
         },

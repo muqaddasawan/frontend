@@ -15,7 +15,7 @@ const ClientLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("api/auth/client/login", input);
+      const response = await axios.post("/api/auth/client/login", input);
       console.log(response.data);
       if (response.status === 200) {
         message = response.data.message;

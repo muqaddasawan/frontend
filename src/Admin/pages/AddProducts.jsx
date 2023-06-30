@@ -20,7 +20,7 @@ const AddProducts = () => {
   const handleaddProduct = async (e) => {
     e.preventDefault();
     try {
-      // const response = await axios.post("api/products/add-product", formData);
+      // const response = await axios.post("/api/products/add-product", formData);
 
       const response = await mainaxios({
         method: "post",
@@ -32,7 +32,7 @@ const AddProducts = () => {
 
         //  const response = await axios({
         //   method: "post",
-        //   url: "api/products/add-product",
+        //   url: "/api/products/add-product",
         //   data: formData,
         //   headers: {
         //     "Content-Type": "multipart/form-data",

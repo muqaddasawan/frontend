@@ -30,7 +30,7 @@ const UpdateProduct = () => {
 
   useEffect(() => {
     axios
-      .get("api/products/single-product/" + id)
+      .get("/api/products/single-product/" + id)
       .then(({ data }) => {
         setProduct_name(data.name);
         setProduct_price(data.price);

@@ -97,7 +97,7 @@ const ProductsAnim = () => {
   useEffect(() => {
     const city = localStorage.getItem("City");
     axios
-      .get("api/products/city-products/" + city)
+      .get("/api/products/city-products/" + city)
       .then(({ data }) => {
         setProducts(data);
       })
@@ -109,7 +109,7 @@ const ProductsAnim = () => {
   const countryProduct = (cityname) => {
     // alert(data);
     axios
-      .get("api/products/city-products/" + cityname)
+      .get("/api/products/city-products/" + cityname)
       .then(({ data }) => {
         setProducts(data);
       })

@@ -45,7 +45,7 @@ const UserOrderDetails = () => {
     e.preventDefault();
     console.log(feedback);
     try {
-      const response = await axios.post("api/feedback/create", feedback);
+      const response = await axios.post("/api/feedback/create", feedback);
       if (response.status === 201) {
         alert("Feedback Submitted");
         navigate("/profile/userorders");

@@ -16,7 +16,7 @@ const AdminRegister = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "api/auth/admin-user/admin-register",
+        "/api/auth/admin-user/admin-register",
         input
       );
       alert(response.data.message);
