@@ -53,7 +53,7 @@ const UpdateProduct = () => {
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     try {
-      const response = await mainaxios({
+      const response = await axios({
         method: "put",
         url: `/api/products/update-product/${p_id}`,
         data: formData,

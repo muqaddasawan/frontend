@@ -7,7 +7,7 @@ const Subscribers = () => {
   const [subscribers, setSubscribers] = useState([]);
 
   useEffect(() => {
-    mainaxios
+    axios
       .get("/api/subscriber/all-subscribers")
       .then(({ data }) => {
         setSubscribers(data);

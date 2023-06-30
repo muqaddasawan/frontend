@@ -22,7 +22,7 @@ const AddProducts = () => {
     try {
       // const response = await axios.post("/api/products/add-product", formData);
 
-      const response = await mainaxios({
+      const response = await axios({
         method: "post",
         mode: "no-cors",
         url: "/api/products/add-product",

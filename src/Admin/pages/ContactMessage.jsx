@@ -7,7 +7,7 @@ const ContactMessage = () => {
   const [contactMessage, setContactMessage] = useState([]);
 
   useEffect(() => {
-    mainaxios
+    axios
       .get("/api/contact/all-contacts")
       .then(({ data }) => {
         setContactMessage(data);

@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const params = useParams();
   const id = params.id;
   useEffect(() => {
-    mainaxios
+    axios
       .get("/api/products/single-product/" + id)
       .then(({ data }) => {
         setProduct(data);
