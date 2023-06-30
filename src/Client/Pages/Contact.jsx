@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
@@ -17,7 +18,10 @@ const Contact = () => {
     e.preventDefault();
     try {
       if (contact.email) {
-        const data = await axios.post("/api/contact/submit-contact", contact);
+        const data = await mainaxios.post(
+          "/api/contact/submit-contact",
+          contact
+        );
         alert("Message submitted");
         navigate("/");
       } else {

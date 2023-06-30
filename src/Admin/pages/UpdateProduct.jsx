@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -29,7 +30,7 @@ const UpdateProduct = () => {
   const id = params.id;
 
   useEffect(() => {
-    axios
+    mainaxios
       .get("/api/products/single-product/" + id)
       .then(({ data }) => {
         setProduct_name(data.name);
@@ -52,9 +53,9 @@ const UpdateProduct = () => {
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios({
+      const response = await mainaxios({
         method: "put",
-        url: `api/products/update-product/${p_id}`,
+        url: `/api/products/update-product/${p_id}`,
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });

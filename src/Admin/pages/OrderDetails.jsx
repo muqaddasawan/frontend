@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useState, useEffect } from "react";
 
 const OrderDetails = () => {
@@ -19,7 +20,7 @@ const OrderDetails = () => {
 
   const getSingleOrder = async () => {
     try {
-      const { data } = await axios.get(`/api/braintree/order/${orderId}`);
+      const { data } = await mainaxios.get(`/api/braintree/order/${orderId}`);
       setSingleOrder(data);
       console.log(data);
     } catch (error) {}
@@ -38,9 +39,12 @@ const OrderDetails = () => {
 
   const updateStatus = async (value, orderId) => {
     try {
-      const data = await axios.put(`/api/braintree/order-status/${orderId}`, {
-        status: value,
-      });
+      const data = await mainaxios.put(
+        `/api/braintree/order-status/${orderId}`,
+        {
+          status: value,
+        }
+      );
       getSingleOrder();
     } catch (error) {
       console.log(error);

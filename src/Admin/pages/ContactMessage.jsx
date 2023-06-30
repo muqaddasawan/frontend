@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useEffect, useState } from "react";
 
 const ContactMessage = () => {
   const [contactMessage, setContactMessage] = useState([]);
 
   useEffect(() => {
-    axios
+    mainaxios
       .get("/api/contact/all-contacts")
       .then(({ data }) => {
         setContactMessage(data);

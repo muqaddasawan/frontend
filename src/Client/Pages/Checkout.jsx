@@ -4,6 +4,7 @@ import GooglePayButton from "@google-pay/button-react";
 import DropIn from "braintree-web-drop-in-react";
 import { useState, useEffect } from "react";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
@@ -46,7 +47,7 @@ const Checkout = () => {
 
   const getToken = async () => {
     try {
-      const response = await axios.get("/api/braintree/token");
+      const response = await mainaxios.get("/api/braintree/token");
       const token = response.data.clientToken;
       setClientToken(token);
     } catch (error) {
@@ -64,7 +65,7 @@ const Checkout = () => {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
       const clientId = localStorage.getItem("clientId");
-      const data = await axios.post("/api/braintree/payment", {
+      const data = await mainaxios.post("/api/braintree/payment", {
         nonce,
         items,
         input,

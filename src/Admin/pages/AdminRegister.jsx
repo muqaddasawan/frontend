@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const AdminRegister = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      const response = await mainaxios.post(
         "/api/auth/admin-user/admin-register",
         input
       );

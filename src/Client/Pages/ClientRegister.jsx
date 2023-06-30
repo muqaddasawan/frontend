@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +29,7 @@ const ClientRegister = () => {
     e.preventDefault();
     console.log(input);
     try {
-      const response = await axios.post("/api/auth/client/register", input);
+      const response = await mainaxios.post("/api/auth/client/register", input);
       alert(response.data.message);
       if (response.status === 201) {
         localStorage.setItem("City", input.city);

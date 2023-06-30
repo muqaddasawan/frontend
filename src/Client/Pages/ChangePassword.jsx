@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,11 +17,15 @@ const ChangePassword = () => {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/auth/change-password", input, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await mainaxios.post(
+        "/api/auth/change-password",
+        input,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(response.data);
       if (response.status === 200) {
         message = response.data.message;

@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
+
 import { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +47,7 @@ const UserOrderDetails = () => {
     e.preventDefault();
     console.log(feedback);
     try {
-      const response = await axios.post("/api/feedback/create", feedback);
+      const response = await mainaxios.post("/api/feedback/create", feedback);
       if (response.status === 201) {
         alert("Feedback Submitted");
         navigate("/profile/userorders");
@@ -62,7 +64,7 @@ const UserOrderDetails = () => {
 
   const getSingleOrder = async () => {
     try {
-      const { data } = await axios.get(`/api/braintree/order/${orderId}`);
+      const { data } = await mainaxios.get(`/api/braintree/order/${orderId}`);
       console.log(data);
       setSingleOrder(data);
       console.log(data);
@@ -71,7 +73,7 @@ const UserOrderDetails = () => {
 
   const getOrderFeedback = async () => {
     try {
-      const { data } = await axios.get(
+      const { data } = await mainaxios.get(
         `/api/feedback/order_feedback/${orderId}`
       );
       if (data.length === 0) {

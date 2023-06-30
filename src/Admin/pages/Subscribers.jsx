@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { useEffect, useState } from "react";
 
 const Subscribers = () => {
   const [subscribers, setSubscribers] = useState([]);
 
   useEffect(() => {
-    axios
+    mainaxios
       .get("/api/subscriber/all-subscribers")
       .then(({ data }) => {
         setSubscribers(data);

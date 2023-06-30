@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "../../Services/axiosInterceptor";
+import mainaxios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +11,7 @@ const AllProducts = () => {
 
   const getProducts = async () => {
     try {
-      const { data } = await axios.get("/api/products/all-products");
+      const { data } = await mainaxios.get("/api/products/all-products");
       setProducts(data);
     } catch (error) {}
   };
@@ -27,7 +28,7 @@ const AllProducts = () => {
         "Are You sure you want to delete this product? type = yes"
       );
       if (answer && answer === "yes") {
-        const { response } = await axios.delete(
+        const { response } = await mainaxios.delete(
           `/api/products/delete-product/${id}`
         );
         alert("Prodcut Deleted Successfully");
