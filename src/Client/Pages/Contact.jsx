@@ -18,10 +18,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       if (contact.email) {
-        const data = await mainaxios.post(
-          "/api/contact/submit-contact",
-          contact
-        );
+        const data = await axios.post("/api/contact/submit-contact", contact);
         alert("Message submitted");
         navigate("/");
       } else {

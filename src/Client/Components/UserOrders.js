@@ -14,9 +14,7 @@ const UserOrders = () => {
   const getOrders = async () => {
     try {
       // const { data } = await axios.get("/api/braintree/orders");
-      const { data } = await mainaxios.get(
-        `/api/braintree/user-orders/${buyer}`
-      );
+      const { data } = await axios.get(`/api/braintree/user-orders/${buyer}`);
       setOrders(data);
       console.log(data);
     } catch (error) {}

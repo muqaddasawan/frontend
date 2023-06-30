@@ -24,6 +24,7 @@ const AddProducts = () => {
 
       const response = await mainaxios({
         method: "post",
+        mode: "no-cors",
         url: "/api/products/add-product",
         data: formData,
         headers: {
