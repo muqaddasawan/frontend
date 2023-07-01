@@ -2,8 +2,8 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.thebaklavaboxx.co.uk",
-  "homepage": "https://thebaklavaboxx.co.uk",
+  "proxy": "http://api.thebaklavaboxx.co.uk",
+  "homepage": "http://thebaklavaboxx.co.uk",
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@google-pay/button-react": "^3.0.9",
