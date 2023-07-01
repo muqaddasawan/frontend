@@ -177,7 +177,7 @@ const UpdateProduct = () => {
             <p className="font-semibold text-center">Old image</p>
             <div className="h-20 w-20">
               <img
-                src={`http://api.thebaklavaboxx.co.uk/${product.thumbnail}`}
+                src={`https://api.thebaklavaboxx.co.uk/${product.thumbnail}`}
               />
             </div>
           </div>
