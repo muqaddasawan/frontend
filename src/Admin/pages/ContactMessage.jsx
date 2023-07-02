@@ -6,14 +6,16 @@ const ContactMessage = () => {
   const [contactMessage, setContactMessage] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("api/contact/all-contacts")
-      .then(({ data }) => {
-        setContactMessage(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (contactMessage.length === 0) {
+      axios
+        .get("api/contact/all-contacts")
+        .then(({ data }) => {
+          setContactMessage(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, [contactMessage]);
   return (
     <div className="mt-12">

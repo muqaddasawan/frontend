@@ -69,18 +69,25 @@ const ProductsAnim = () => {
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
 
+  const [products, setProducts] = useState([]);
+  const [alertmsg, setAlertmsg] = useState("");
+
   useEffect(() => {
     const city = localStorage.getItem("City");
     setcityname(city);
     if (!city) {
       console.log("not found");
       setOpen(true);
-      countryProduct(city);
+      if (products.length === 0) {
+        countryProduct(city);
+      }
     } else {
-      // console.log(city);
-      countryProduct(city);
+      console.log(city);
+      if (products.length === 0) {
+        countryProduct(city);
+      }
     }
-  });
+  }, []);
 
   // localStorage.removeItem("City");
 
@@ -92,26 +99,34 @@ const ProductsAnim = () => {
     setcartOpen((current) => !current);
   };
 
-  const [products, setProducts] = useState([]);
-
   useEffect(() => {
     const city = localStorage.getItem("City");
-    axios
-      .get("api/products/city-products/" + city)
-      .then(({ data }) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    if (products.length === 0) {
+      axios
+        .get("api/products/city-products/" + city)
+        .then(({ data }) => {
+          if (data.length === 0) {
+            console.log(data);
+          } else {
+            setProducts(data);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  });
 
   const countryProduct = (cityname) => {
     // alert(data);
     axios
       .get("api/products/city-products/" + cityname)
       .then(({ data }) => {
-        setProducts(data);
+        if (data.length === 0) {
+          console.log(data);
+        } else {
+          setProducts(data);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -144,53 +159,61 @@ const ProductsAnim = () => {
           id="Projects"
           className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
         >
-          {products.map((item, i) => (
-            <div className="card" key={i}>
-              <div className="card-content ">
-                <img
-                  src={`http://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
-                  alt="Not Found"
-                  className="card-img"
-                />
-                <h1 className="card-title text-black font-semibold">
-                  {item.name}
-                </h1>
-                <div className="card-body">
-                  {/* <div className="card-star">
+          {products.length === 0 ? (
+            <div className="bg-gray rounded-lg items-center text-center">
+              <p className="text-lg p-3 text-center text-blue-gray-50">
+                Products not found in your city
+              </p>
+            </div>
+          ) : (
+            products.map((item, i) => (
+              <div className="card" key={i}>
+                <div className="card-content ">
+                  <img
+                    src={`https://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
+                    alt="Not Found"
+                    className="card-img"
+                  />
+                  <h1 className="card-title text-black font-semibold">
+                    {item.name}
+                  </h1>
+                  <div className="card-body">
+                    {/* <div className="card-star">
                 <span className="rating-value text-black">4.5</span>
                 <span className="star">&#9733;</span>
               </div> */}
-                  <p className="card-price text-black">£ {item.price}</p>
-                </div>
-                <div className="flex flex-row card-footer gap-2">
-                  {/* <button className="text-lg hover:shadow-lg shadow-gray_light font-semibold bg-dark_gray rounded-2xl p-2">
+                    <p className="card-price text-black">£ {item.price}</p>
+                  </div>
+                  <div className="flex flex-row card-footer gap-2">
+                    {/* <button className="text-lg hover:shadow-lg shadow-gray_light font-semibold bg-dark_gray rounded-2xl p-2">
                     Buy Now
                   </button> */}
-                  <button
-                    onClick={(e) => {
-                      const product = [
-                        {
-                          id: item._id,
-                          _id: item._id,
-                          name: item.name,
-                          image: item.thumbnail,
-                          price: item.price,
-                          city: item.city,
-                          quantity: 1,
-                        },
-                      ];
-                      addItem(product[0]);
-                      Animate(e);
-                      console.log(product);
-                    }}
-                    className="bg-dark_gray text-lg shadow-lg text-white font-semibold rounded-2xl p-2"
-                  >
-                    Add To Cart
-                  </button>
+                    <button
+                      onClick={(e) => {
+                        const product = [
+                          {
+                            id: item._id,
+                            _id: item._id,
+                            name: item.name,
+                            image: item.thumbnail,
+                            price: item.price,
+                            city: item.city,
+                            quantity: 1,
+                          },
+                        ];
+                        addItem(product[0]);
+                        Animate(e);
+                        console.log(product);
+                      }}
+                      className="bg-dark_gray text-lg shadow-lg text-white font-semibold rounded-2xl p-2"
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
 
           {/* <div className="card">
             <div className="card-content ">
@@ -280,6 +303,7 @@ const ProductsAnim = () => {
                             Baklavabox provides location base products to
                             maintain quality
                           </p>
+
                           <select
                             name="cities"
                             id="cities"
@@ -287,6 +311,7 @@ const ProductsAnim = () => {
                             onChange={(e) => {
                               localStorage.setItem("City", e.target.value);
                               setcityname(e.target.value);
+                              setProducts([]);
                               setOpen(false);
                             }}
                           >

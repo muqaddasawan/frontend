@@ -21,18 +21,12 @@ const OrderDetails = () => {
     try {
       const { data } = await axios.get(`/api/braintree/order/${orderId}`);
       setSingleOrder(data);
-      console.log(data);
     } catch (error) {}
   };
 
   useEffect(() => {
     if (!singleOrder) {
       getSingleOrder();
-    } else {
-      // console.log(singleOrder.buyer.clientname);
-      singleOrder.map((o, i) => {
-        console.log(o.buyer.clientname);
-      });
     }
   }, [singleOrder]);
 
@@ -62,20 +56,23 @@ const OrderDetails = () => {
           ) : (
             <div className="flex flex-wrap -mx-4 mb-6 xl:mb-24">
               {singleOrder.map((order, i) => (
-                <div>
-                  <div key={i} className="w-full px-4 mb-5 md:mb-0">
+                <div key={i}>
+                  <div className="w-full px-4 mb-5 md:mb-0">
                     <div className="py-12 px-8 md:px-12 bg-white rounded-3xl">
                       <span className="inline-block text-darkBlueGray-300 font-medium mb-6 text-2xl">
                         {order.products.length} products
                       </span>
                       <div className="xl:px-10">
                         {order.products.map((product, i) => (
-                          <div className=" flex flex-wrap items-center xl:justify-between -mx-4 mb-8 pb-8 border-b border-gray-200 border-opacity-40">
+                          <div
+                            key={i}
+                            className=" flex flex-wrap items-center xl:justify-between -mx-4 mb-8 pb-8 border-b border-gray-200 border-opacity-40"
+                          >
                             <div className=" w-full md:w-auto px-4 mb-6 xl:mb-2">
                               <div className="block mx-auto max-w-max">
                                 <img
                                   className="h-28 object-cover"
-                                  src={`http://api.thebaklavaboxx.co.uk/${product.image}`}
+                                  src={`https://api.thebaklavaboxx.co.uk/${product.image}`}
                                   alt=""
                                 />
                               </div>

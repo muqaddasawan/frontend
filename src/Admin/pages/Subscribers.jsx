@@ -6,14 +6,16 @@ const Subscribers = () => {
   const [subscribers, setSubscribers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("api/subscriber/all-subscribers")
-      .then(({ data }) => {
-        setSubscribers(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (subscribers.length === 0) {
+      axios
+        .get("api/subscriber/all-subscribers")
+        .then(({ data }) => {
+          setSubscribers(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, [subscribers]);
   return (
     <div className="mt-12">

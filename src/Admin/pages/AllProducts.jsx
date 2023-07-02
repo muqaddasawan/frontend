@@ -9,14 +9,16 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("api/products/all-products")
-      .then(({ data }) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (products.length === 0) {
+      axios
+        .get("api/products/all-products")
+        .then(({ data }) => {
+          setProducts(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, [products]);
 
   const deleteProduct = async (id) => {
@@ -87,7 +89,7 @@ const AllProducts = () => {
 
                       <img
                         className="h-20 w-20 rounded-lg"
-                        src={`http://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
+                        src={`https://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
                       />
                     </div>
                     <div className="mt-1 lg:hidden">
