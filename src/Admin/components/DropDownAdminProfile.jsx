@@ -21,17 +21,12 @@ const DropDownAdminProfile = (props) => {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900">
-            <div className="gap-3 flex flex-row z-10">
-              <span className="ml-3 bg-blue-gray-50 rounded-lg p-3">
-                {props.adminname}
-              </span>
-
-              <img
-                className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                src="https://cdn-icons-png.flaticon.com/512/147/147142.png"
-                alt="Bordered avatar"
-              />
-            </div>
+            <img
+              className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+              src="https://cdn-icons-png.flaticon.com/512/147/147142.png"
+              alt="Bordered avatar"
+            />
+            <span className="ml-3 mt-2">{props.adminname}</span>
           </Menu.Button>
         </div>
 

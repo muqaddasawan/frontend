@@ -1,8 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
-
 import { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +45,7 @@ const UserOrderDetails = () => {
     e.preventDefault();
     console.log(feedback);
     try {
-      const response = await axios.post("/api/feedback/create", feedback);
+      const response = await axios.post("api/feedback/create", feedback);
       if (response.status === 201) {
         alert("Feedback Submitted");
         navigate("/profile/userorders");
@@ -130,8 +128,8 @@ const UserOrderDetails = () => {
                               <div className="block mx-auto max-w-max">
                                 <img
                                   className="h-28 object-cover"
-                                  src={`https://api.thebaklavaboxx.co.uk/${product.image}`}
-                                  alt="Image Not Found"
+                                  src={`http://localhost:8000/${product.image}`}
+                                  alt=""
                                 />
                               </div>
                             </div>

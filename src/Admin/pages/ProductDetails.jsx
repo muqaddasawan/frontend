@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState([]);
@@ -10,7 +9,7 @@ const ProductDetails = () => {
   const id = params.id;
   useEffect(() => {
     axios
-      .get("/api/products/single-product/" + id)
+      .get("api/products/single-product/" + id)
       .then(({ data }) => {
         setProduct(data);
       })
@@ -27,7 +26,7 @@ const ProductDetails = () => {
       <p>{product.price}</p>
       <p>{product.city}</p>
 
-      <img src={`https://api.thebaklavaboxx.co.uk/${product.thumbnail}`} />
+      <img src={`http://localhost:8000/${product.thumbnail}`} />
     </div>
   );
 };

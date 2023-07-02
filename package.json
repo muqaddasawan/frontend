@@ -2,8 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.thebaklavaboxx.co.uk",
-  "homepage": "https://thebaklavaboxx.co.uk",
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@google-pay/button-react": "^3.0.9",
@@ -16,7 +14,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "braintree-web-drop-in-react": "^1.2.1",
-    "http-proxy-middleware": "^2.0.6",
     "moment": "^2.29.4",
     "multiselect-react-dropdown": "^2.0.25",
     "react": "^18.2.0",

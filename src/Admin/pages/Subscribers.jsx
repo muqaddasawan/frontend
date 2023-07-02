@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useEffect, useState } from "react";
 
 const Subscribers = () => {
@@ -8,7 +7,7 @@ const Subscribers = () => {
 
   useEffect(() => {
     axios
-      .get("/api/subscriber/all-subscribers")
+      .get("api/subscriber/all-subscribers")
       .then(({ data }) => {
         setSubscribers(data);
       })

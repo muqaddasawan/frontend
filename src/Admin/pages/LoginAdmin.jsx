@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +16,7 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "/api/auth/admin-user/admin-login",
+        "api/auth/admin-user/admin-login",
         input
       );
       console.log(response.data);

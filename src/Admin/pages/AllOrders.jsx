@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
@@ -12,6 +11,7 @@ const AllOrders = () => {
     try {
       const { data } = await axios.get("/api/braintree/orders");
       setOrders(data);
+      console.log(data);
     } catch (error) {}
   };
 

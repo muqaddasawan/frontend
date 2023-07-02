@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 
 const Newsletter = () => {
   const [input, setinput] = useState({
@@ -12,7 +11,7 @@ const Newsletter = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/subscriber/register", input);
+      const response = await axios.post("api/subscriber/register", input);
       if (response.status === 201) {
         document.getElementById("successdiv").classList.remove("hidden");
         document.getElementById("alertdiv").classList.add("hidden");

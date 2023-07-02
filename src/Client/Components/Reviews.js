@@ -8,7 +8,7 @@ const Reviews = () => {
 
   useEffect(() => {
     axios
-      .get("/api/feedback/get-all")
+      .get("api/feedback/get-all")
       .then(({ data }) => {
         setReviews(data);
       })

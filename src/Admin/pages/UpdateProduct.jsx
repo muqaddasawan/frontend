@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -30,8 +29,8 @@ const UpdateProduct = () => {
   const id = params.id;
 
   useEffect(() => {
-    mainaxios
-      .get("/api/products/single-product/" + id)
+    axios
+      .get("api/products/single-product/" + id)
       .then(({ data }) => {
         setProduct_name(data.name);
         setProduct_price(data.price);
@@ -55,7 +54,7 @@ const UpdateProduct = () => {
     try {
       const response = await axios({
         method: "put",
-        url: `/api/products/update-product/${p_id}`,
+        url: `api/products/update-product/${p_id}`,
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -176,9 +175,7 @@ const UpdateProduct = () => {
           <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="font-semibold text-center">Old image</p>
             <div className="h-20 w-20">
-              <img
-                src={`https://api.thebaklavaboxx.co.uk/${product.thumbnail}`}
-              />
+              <img src={`http://localhost:8000/${product.thumbnail}`} />
             </div>
           </div>
           <div className="w-full text-center">

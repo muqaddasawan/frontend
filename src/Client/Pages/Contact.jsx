@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Contact = () => {

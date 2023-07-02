@@ -4,10 +4,13 @@ import GooglePayButton from "@google-pay/button-react";
 import DropIn from "braintree-web-drop-in-react";
 import { useState, useEffect } from "react";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const [reciever, setReciever] = useState("");
+  const [house, setHouse] = useState("");
+  const [street, setStreet] = useState("");
+  const [postal, setPostal] = useState("");
   const city = localStorage.getItem("City");
   const [cityOptions, setCityOptions] = useState([
     "Luton",
@@ -189,7 +192,7 @@ const Checkout = () => {
               >
                 <img
                   className="m-2 h-24 w-28 rounded-md border border-blue-gray-100 object-cover object-center"
-                  src={`https://api.thebaklavaboxx.co.uk/${item.image}`}
+                  src={`http://localhost:8000/${item.image}`}
                   alt="Image"
                 />
                 <div className="flex w-full flex-col px-4 py-4">
@@ -371,7 +374,7 @@ const Checkout = () => {
               )}
             </div>
 
-            {/* <div className="w-full">
+            <div className="w-full">
               <GooglePayButton
                 environment="TEST"
                 paymentRequest={{
@@ -409,7 +412,7 @@ const Checkout = () => {
                   console.log("load payment data", paymentRequest);
                 }}
               />
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

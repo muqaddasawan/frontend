@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import mainaxios from "axios";
 import axios from "../../Services/axiosInterceptor";
 import { useNavigate } from "react-router-dom";
 
@@ -22,12 +21,9 @@ const AddProducts = () => {
     try {
       const response = await axios({
         method: "post",
-        mode: "no-cors",
-        url: "/api/products/add-product",
+        url: "api/products/add-product",
         data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        headers: { "Content-Type": "multipart/form-data" },
       });
       if (response.status === 200) {
         document.getElementById("successdiv").classList.remove("hidden");
@@ -85,11 +81,7 @@ const AddProducts = () => {
             </button>
           </div>
         </div>
-        <form
-          onSubmit={handleaddProduct}
-          method="POST"
-          encType="multipart/form-data"
-        >
+        <form onSubmit={handleaddProduct}>
           <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="shrink-0 w-32 font-medium">Product Name</p>
 

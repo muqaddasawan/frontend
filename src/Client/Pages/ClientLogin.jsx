@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +15,7 @@ const ClientLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/auth/client/login", input);
+      const response = await axios.post("api/auth/client/login", input);
       console.log(response.data);
       if (response.status === 200) {
         message = response.data.message;

@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useEffect, useState } from "react";
 
 const ContactMessage = () => {
@@ -8,7 +7,7 @@ const ContactMessage = () => {
 
   useEffect(() => {
     axios
-      .get("/api/contact/all-contacts")
+      .get("api/contact/all-contacts")
       .then(({ data }) => {
         setContactMessage(data);
       })

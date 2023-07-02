@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
-import mainaxios from "axios";
 import { useState, useEffect } from "react";
 
 const OrderDetails = () => {
@@ -59,9 +58,7 @@ const OrderDetails = () => {
           </div>
 
           {!singleOrder ? (
-            <div>
-              <h2 className="text-center">Order Id not Found</h2>
-            </div>
+            console.log("Fetching")
           ) : (
             <div className="flex flex-wrap -mx-4 mb-6 xl:mb-24">
               {singleOrder.map((order, i) => (
@@ -78,8 +75,8 @@ const OrderDetails = () => {
                               <div className="block mx-auto max-w-max">
                                 <img
                                   className="h-28 object-cover"
-                                  src={`https://api.thebaklavaboxx.co.uk/${product.image}`}
-                                  alt="Image Not Found"
+                                  src={`http://localhost:8000/${product.image}`}
+                                  alt=""
                                 />
                               </div>
                             </div>
@@ -110,7 +107,7 @@ const OrderDetails = () => {
                     </div>
                   </div>
 
-                  <div className="w-full md:w-6/12 xl:w-6/12 px-4">
+                  <div className="w-full px-4">
                     <div className="mb-14">
                       <h2 className="mb-7 md:mt-6 text-3xl font-heading font-medium">
                         Order totals

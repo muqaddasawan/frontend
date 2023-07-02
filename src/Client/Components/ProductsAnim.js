@@ -97,7 +97,7 @@ const ProductsAnim = () => {
   useEffect(() => {
     const city = localStorage.getItem("City");
     axios
-      .get("/api/products/city-products/" + city)
+      .get("api/products/city-products/" + city)
       .then(({ data }) => {
         setProducts(data);
       })
@@ -109,7 +109,7 @@ const ProductsAnim = () => {
   const countryProduct = (cityname) => {
     // alert(data);
     axios
-      .get("/api/products/city-products/" + cityname)
+      .get("api/products/city-products/" + cityname)
       .then(({ data }) => {
         setProducts(data);
       })
@@ -148,7 +148,7 @@ const ProductsAnim = () => {
             <div className="card" key={i}>
               <div className="card-content ">
                 <img
-                  src={`https://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
+                  src={`http://localhost:8000/${item.thumbnail}`}
                   alt="Not Found"
                   className="card-img"
                 />
@@ -196,7 +196,7 @@ const ProductsAnim = () => {
             <div className="card-content ">
               <img
                 src="https://www.pngmart.com/files/17/Bakery-Food-Transparent-PNG.png"
-                alt="Image Not Found"
+                alt=""
                 className="card-img"
               />
               <h1 className="card-title p-2 text-black font-semibold">
