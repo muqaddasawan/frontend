@@ -128,7 +128,7 @@ const UserOrderDetails = () => {
                               <div className="block mx-auto max-w-max">
                                 <img
                                   className="h-28 object-cover"
-                                  src={`http://localhost:8000/${product.image}`}
+                                  src={`http://api.thebaklavaboxx.co.uk/${product.image}`}
                                   alt=""
                                 />
                               </div>

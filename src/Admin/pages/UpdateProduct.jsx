@@ -175,7 +175,9 @@ const UpdateProduct = () => {
           <div className="flex flex-col gap-4 py-4 sm:flex-row">
             <p className="font-semibold text-center">Old image</p>
             <div className="h-20 w-20">
-              <img src={`http://localhost:8000/${product.thumbnail}`} />
+              <img
+                src={`http://api.thebaklavaboxx.co.uk/${product.thumbnail}`}
+              />
             </div>
           </div>
           <div className="w-full text-center">

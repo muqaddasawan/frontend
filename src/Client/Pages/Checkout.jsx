@@ -192,7 +192,7 @@ const Checkout = () => {
               >
                 <img
                   className="m-2 h-24 w-28 rounded-md border border-blue-gray-100 object-cover object-center"
-                  src={`http://localhost:8000/${item.image}`}
+                  src={`http://api.thebaklavaboxx.co.uk/${item.image}`}
                   alt="Image"
                 />
                 <div className="flex w-full flex-col px-4 py-4">

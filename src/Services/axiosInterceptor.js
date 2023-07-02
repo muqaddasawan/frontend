@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8000/",
+  baseURL: "http://api.thebaklavaboxx.co.uk/",
   timeout: 5000,
 });
 
