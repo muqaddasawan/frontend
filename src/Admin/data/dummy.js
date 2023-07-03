@@ -13,6 +13,8 @@ import {
   BsCurrencyDollar,
   BsShield,
   BsChatLeft,
+  BsEnvelope,
+  BsLockFill,
 } from "react-icons/bs";
 
 import { RiContactsLine, RiStockLine } from "react-icons/ri";
@@ -21,6 +23,7 @@ import { HiOutlineRefresh } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { GiLouvrePyramid } from "react-icons/gi";
 import { GrLocation } from "react-icons/gr";
+import { SiAuth0 } from "react-icons/si";
 
 export const gridOrderImage = (props) => (
   <div>
@@ -535,7 +538,22 @@ export const links = [
       {
         link: "contact-message",
         name: "Contact Message",
-        icon: <RiContactsLine />,
+        icon: <BsEnvelope />,
+      },
+      // {
+      //   link: "editor",
+      //   name: "editor",
+      //   icon: <FiEdit />,
+      // },
+    ],
+  },
+  {
+    title: "Auth",
+    links: [
+      {
+        link: "admin-user/register",
+        name: "Create Admin",
+        icon: <BsLockFill />,
       },
       // {
       //   link: "editor",

@@ -7,7 +7,6 @@ import "./productanim.css";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
 import axios from "../../Services/axiosInterceptor";
-import CountrySelect from "../Components/CountrySelect";
 import { useCart } from "react-use-cart";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -170,7 +169,7 @@ const ProductsAnim = () => {
               <div className="card" key={i}>
                 <div className="card-content ">
                   <img
-                    src={`https://api.thebaklavaboxx.co.uk/${item.thumbnail}`}
+                    src={`https://api.thebaklavaboxx.co.uk//${item.thumbnail}`}
                     alt="Not Found"
                     className="card-img"
                   />

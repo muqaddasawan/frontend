@@ -24,7 +24,8 @@ const Checkout = () => {
     "Other City",
   ]);
   const [input, setinput] = useState({
-    reciever: "",
+    recieverfirst: "",
+    recieversecond: "",
     house: "",
     street: "",
     postal: "",
@@ -43,6 +44,10 @@ const Checkout = () => {
 
   const navigate = useNavigate();
 
+  if (isEmpty) {
+    navigate("/emptycart");
+  }
+
   const [clientToken, setClientToken] = useState("");
   const [clientLoggedtoken, setclientLoggedtoken] = useState("");
   const [instance, setInstance] = useState("");
@@ -52,6 +57,8 @@ const Checkout = () => {
     try {
       const response = await axios.get("/api/braintree/token");
       const token = response.data.clientToken;
+      console.log("Braintree = ");
+      console.log(token);
       setClientToken(token);
     } catch (error) {
       console.log(error);
@@ -60,6 +67,8 @@ const Checkout = () => {
 
   useEffect(() => {
     setclientLoggedtoken(localStorage.getItem("clienttoken"));
+    console.log("Loggedin Client = ");
+    console.log(clientLoggedtoken);
     getToken();
   }, [clientLoggedtoken]);
 
@@ -74,10 +83,10 @@ const Checkout = () => {
         input,
         clientId,
       });
+      console.log(data);
       setLoading(false);
       emptyCart();
-      alert("Order submitted successfully");
-      navigate("/");
+      navigate("/ordersuccess");
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -87,8 +96,10 @@ const Checkout = () => {
   const handleShipping = async (e) => {
     e.preventDefault();
 
-    if (!input.reciever) {
-      alert("Reciever not found");
+    if (!input.recieverfirst) {
+      alert("Reciever First name not found");
+    } else if (!input.recieversecond) {
+      alert("Reciever Last name not found");
     } else if (!input.house) {
       alert("House not found");
     } else if (!input.street) {
@@ -192,7 +203,7 @@ const Checkout = () => {
               >
                 <img
                   className="m-2 h-24 w-28 rounded-md border border-blue-gray-100 object-cover object-center"
-                  src={`https://api.thebaklavaboxx.co.uk/${item.image}`}
+                  src={`https://api.thebaklavaboxx.co.uk//${item.image}`}
                   alt="Image"
                 />
                 <div className="flex w-full flex-col px-4 py-4">
@@ -261,11 +272,24 @@ const Checkout = () => {
             <form onSubmit={handleShipping}>
               <div className="">
                 <input
-                  id="reciever"
-                  name="reciever"
+                  id="recieverfirst"
+                  name="recieverfirst"
                   type="text"
                   className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
-                  placeholder="Enter Reciever name"
+                  placeholder="Enter first name"
+                  onChange={(e) =>
+                    setinput({
+                      ...input,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  id="recieversecond"
+                  name="recieversecond"
+                  type="text"
+                  className="mt-4 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+                  placeholder="Enter last name"
                   onChange={(e) =>
                     setinput({
                       ...input,
@@ -374,7 +398,7 @@ const Checkout = () => {
               )}
             </div>
 
-            <div className="w-full">
+            {/* <div className="w-full">
               <GooglePayButton
                 environment="TEST"
                 paymentRequest={{
@@ -412,7 +436,7 @@ const Checkout = () => {
                   console.log("load payment data", paymentRequest);
                 }}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -5,8 +5,10 @@ import Contact from "../Pages/Contact";
 import About from "../Pages/About";
 import Faq from "../Pages/Faq";
 import Privacy from "../Pages/Privacy";
-import NotFound from "../Pages/NotFound";
 import Checkout from "../Pages/Checkout";
+import NotFound from "../Pages/NotFound";
+import OrderSuccess from "../Pages/OrderSuccess";
+import EmptyCart from "../Pages/EmptyCart";
 import Footer from "../Components/Footer";
 import Newsletter from "../Components/Newsletter";
 import NavbarMenu from "../Components/NavbarMenu";
@@ -33,8 +35,10 @@ const Main = () => {
           <Route path="/contact" element={<Contact />} />
           {/* <Route path="/checkout" element={<Checkout />} /> */}
           <Route path="/faq" element={<Faq />} />
-          <Route path="/notfound" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/ordersuccess" element={<OrderSuccess />} />
+          <Route path="/emptycart" element={<EmptyCart />} />
           <Route path="" element={<ProtectedclientRoutes />}>
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/profile" element={<Profile />} />
