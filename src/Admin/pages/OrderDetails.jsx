@@ -168,9 +168,15 @@ const OrderDetails = () => {
                         Shipping Details
                       </h4>
                       <h4 className="text-lg font-semibold">
-                        Reciever Name :
-                        <span className="ml-5 text-base">
-                          {order.shipping.reciever}
+                        Reciever first Name :
+                        <span className="ml-5 text-base capitalize">
+                          {order.shipping.recieverfirst}
+                        </span>
+                      </h4>
+                      <h4 className="text-lg font-semibold">
+                        Reciever second Name :
+                        <span className="ml-5 text-base capitalize">
+                          {order.shipping.recieversecond}
                         </span>
                       </h4>
                       <h4 className="text-lg font-semibold">

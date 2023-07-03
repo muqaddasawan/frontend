@@ -9,10 +9,20 @@ const UserOrderDetails = () => {
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+
+  const [singleOrder, setSingleOrder] = useState("");
+  const [getfeedback, setGetFeedback] = useState("");
+  const [comment, setComment] = useState("");
+  const [rating, setRating] = useState("");
+
   const navigate = useNavigate();
 
   const handleStarClick = (e) => {
     setCurrentValue(e);
+    setFeedback({
+      ...feedback,
+      rating: e,
+    });
     console.log(e);
   };
 
@@ -23,11 +33,6 @@ const UserOrderDetails = () => {
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
-
-  const [singleOrder, setSingleOrder] = useState("");
-  const [getfeedback, setGetFeedback] = useState("");
-  const [comment, setComment] = useState("");
-  const [rating, setRating] = useState("");
 
   const params = useParams();
   const orderId = params.orderId;
@@ -115,15 +120,18 @@ const UserOrderDetails = () => {
           ) : (
             <div className="flex flex-wrap -mx-4 mb-6 xl:mb-24 w-full">
               {singleOrder.map((order, i) => (
-                <div>
-                  <div key={i} className="w-full px-4 mb-5 md:mb-0">
+                <div key={i}>
+                  <div className="w-full px-4 mb-5 md:mb-0">
                     <div className="py-12 px-8 md:px-12 bg-white rounded-3xl">
                       <span className="inline-block text-darkBlueGray-300 font-medium mb-6 text-2xl">
                         {order.products.length} products
                       </span>
                       <div className="xl:px-10">
                         {order.products.map((product, i) => (
-                          <div className="relative flex flex-wrap items-center xl:justify-between -mx-4 mb-8 pb-8 border-b border-gray-200 border-opacity-40">
+                          <div
+                            key={i}
+                            className="relative flex flex-wrap items-center xl:justify-between -mx-4 mb-8 pb-8 border-b border-gray-200 border-opacity-40"
+                          >
                             <div className="relative w-full md:w-auto px-4 mb-6 xl:mb-2">
                               <div className="block mx-auto max-w-max">
                                 <img
@@ -176,7 +184,7 @@ const UserOrderDetails = () => {
                         <span>Shipping</span>
                         <span className="flex items-center text-xl">
                           <span className="mr-2 ml-5 text-lg">£ </span>
-                          <span>10</span>
+                          <span>8</span>
                         </span>
                       </div>
                       <div className="flex items-center justify-between py-4 px-10 mb-6 leading-8 bg-white font-heading font-medium rounded-3xl">
@@ -206,7 +214,7 @@ const UserOrderDetails = () => {
                           <form>
                             <div>
                               <label
-                                for="message"
+                                htmlFor="message"
                                 className="block m-4 text-2xl text-center border-b font-medium text-gray-900 dark:text-white"
                               >
                                 Submit Your Feedback

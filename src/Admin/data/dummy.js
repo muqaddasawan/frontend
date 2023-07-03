@@ -551,7 +551,7 @@ export const links = [
     title: "Auth",
     links: [
       {
-        link: "admin-user/register",
+        link: "/admin-user/register",
         name: "Create Admin",
         icon: <BsLockFill />,
       },
